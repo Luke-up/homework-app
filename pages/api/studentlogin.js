@@ -8,26 +8,30 @@ export default async function handler(req, res) {
     const db = client.db("homework");
     const collection = db.collection("student");
     // example to get a doc in collection
-    await collection.find({ name: "student1" }).then((response) => {
-      console.log(response);
-      if (response.length === 0) {
-        res.send("404");
-      } else {
-        collection
-          .find({ name: "student1", password: "secret" })
-          .then((response) => {
-            if (response.length === 0) {
-              res.send("406");
-            } else {
-              const accessTOKEN = jwt.sign(
-                { name: req.body.userName },
-                process.env.ACCESS_TOKEN_SECRET
-              );
-              res.json({ accessToken: accessTOKEN });
-            }
-          });
-      }
-    });
+    await collection
+      .find({ name: req.body.type })
+      .toArray()
+      .then((response) => {
+        console.log(response);
+        if (response.length === 0) {
+          res.send("404");
+        } else {
+          collection
+            .find({ name: req.body.type, password: req.body.password })
+            .toArray()
+            .then((response) => {
+              if (response.length === 0) {
+                res.send("406");
+              } else {
+                const accessTOKEN = jwt.sign(
+                  { name: req.body.userName },
+                  process.env.ACCESS_TOKEN_SECRET
+                );
+                res.json({ accesstoken: accessTOKEN });
+              }
+            });
+        }
+      });
   }
   //   } else {
   //     const client = await clientPromise;
