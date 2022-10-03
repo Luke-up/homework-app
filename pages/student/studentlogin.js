@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import { propTypes } from "react-bootstrap/esm/Image";
+import Layout from "../../components/StudentLayout";
 
-function Student() {
+function Studentlogin(props) {
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
   const router = useRouter();
@@ -14,11 +16,9 @@ function Student() {
     const res = await fetch(`/api/studentlogin`, options);
 
     const jwt = await res.json();
-    console.log(jwt);
-    sessionStorage.setItem("jwt", jwt.accesstoken);
-
+    props.setJwt(jwt.accesstoken);
     if (jwt.accesstoken) {
-      router.push("/student");
+      router.push("/student/student");
     }
   }
   return (
@@ -34,9 +34,14 @@ function Student() {
         name="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={() => checkCredentials()}>Submit</button>
+      <button
+        className="btn btn-secondary m-2"
+        onClick={() => checkCredentials()}
+      >
+        Submit
+      </button>
     </div>
   );
 }
 
-export default Student;
+export default Studentlogin;

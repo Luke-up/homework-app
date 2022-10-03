@@ -1,30 +1,17 @@
 import Link from "next/link";
 
-//fetch function receiving the search term from the address bar (query)
-// export const getServerSideProps = async () => {
-//   const res = await fetch(`http://localhost:3000/api/studentlogin`);
-//   const data = await res.json();
-
-//   //function passes the searchterm and results as props
-//   return {
-//     props: {
-//       ans: data,
-//     },
-//   };
-// };
-
 function Home() {
   return (
     <div>
-      <button>
-        <Link href={"/studentlogin"}>
-          <a>Student</a>
+      <button className="btn btn-secondary m-2">
+        <Link href={"/student/studentlogin"}>
+          <a className="text-decoration-none text-white">Student</a>
         </Link>
       </button>
       <br />
-      <button>
+      <button className="btn btn-secondary m-2">
         <Link href={"/teacher"}>
-          <a>Teacher</a>
+          <a className="text-decoration-none text-white">Teacher</a>
         </Link>
       </button>
     </div>
