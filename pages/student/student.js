@@ -23,15 +23,19 @@ function Student(props) {
   const effortSymbol = effort();
   function effort() {
     if (found) {
-      const symbol = Number(user.effort);
-      if (symbol > 79) {
-        return "A";
-      } else if (symbol > 59) {
-        return "B";
-      } else if (symbol > 39) {
-        return "C";
+      if (user.effort === "x") {
+        return "";
       } else {
-        return "D";
+        const symbol = Number(user.effort);
+        if (symbol > 79) {
+          return "A";
+        } else if (symbol > 59) {
+          return "B";
+        } else if (symbol > 39) {
+          return "C";
+        } else {
+          return "D";
+        }
       }
     }
   }
@@ -76,7 +80,9 @@ function Student(props) {
   function getText() {
     if (found) {
       const taskArray = user.tasks;
-      return taskArray[taskArray.length - 1].text;
+      if (taskArray.length !== 0) {
+        return taskArray[taskArray.length - 1].text;
+      }
     }
   }
 

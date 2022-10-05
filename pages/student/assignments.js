@@ -29,6 +29,18 @@ function assignments(props) {
     if (completion === "false") {
       return <button onClick={() => setTaskAttempt(task)}>task</button>;
     }
+    if (completion === "true") {
+      console.log(task);
+      return task.questions.map((a) => {
+        return (
+          <div>
+            <p>
+              {a.question}:{a.answer}
+            </p>
+          </div>
+        );
+      });
+    }
   }
 
   return (
@@ -40,6 +52,7 @@ function assignments(props) {
             task={taskAttempt}
             jsonWebToken={jsonWebToken}
             setTaskAttempt={setTaskAttempt}
+            checkCredentials={checkCredentials}
           />
         ) : (
           <Accordion>
@@ -47,7 +60,7 @@ function assignments(props) {
               ? tasks.map((task) => {
                   count += 1;
                   return (
-                    <Accordion.Item eventKey={count}>
+                    <Accordion.Item eventKey={count} key={task.title}>
                       <Accordion.Header>{task.title}</Accordion.Header>
                       <Accordion.Body>
                         <h3>{task.text}</h3>

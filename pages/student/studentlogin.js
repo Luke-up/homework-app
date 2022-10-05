@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { propTypes } from "react-bootstrap/esm/Image";
-import Layout from "../../components/StudentLayout";
+import Link from "next/link";
 
 function Studentlogin(props) {
   const [userName, setUserName] = React.useState("");
@@ -40,6 +39,9 @@ function Studentlogin(props) {
       >
         Submit
       </button>
+      <Link href={"/student/studentcreate"}>
+        <a>Create new user</a>
+      </Link>
     </div>
   );
 }

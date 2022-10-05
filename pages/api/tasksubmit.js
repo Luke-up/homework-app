@@ -10,7 +10,12 @@ export default async function handler(req, res) {
     const collection = db.collection("student");
     collection.updateOne(
       { _id: ObjectId(decoded) },
-      { $set: { "tasks.$[current].questions": [req.body.answers] } },
+      {
+        $set: {
+          "tasks.$[current].questions": req.body.answers,
+          "tasks.$[current].complete": "pending",
+        },
+      },
       { arrayFilters: [{ "current.title": req.body.title }] }
     );
     res.send("200");

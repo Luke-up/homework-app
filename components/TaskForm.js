@@ -1,27 +1,31 @@
 import React from "react";
 
 function TaskForm(props) {
-  const [answerArray, setAnswerArray] = React.useState([]);
+  const [answerArray, setAnswerArray] = React.useState("");
   const [input, setInput] = React.useState("");
   const [questionNumber, setQuestionNumber] = React.useState(0);
 
+  console.log(props.task.questions[questionNumber]);
+
   function submitAnswer() {
-    if (answerArray == []) {
+    if (answerArray == "") {
       let newArray = [
         {
-          question: props.task.questions[0].question,
+          question: props.task.questions[questionNumber].question,
           answer: input,
         },
       ];
+      document.getElementById("inputArea").value = "";
       setAnswerArray(newArray);
       setQuestionNumber(Number(questionNumber + 1));
     } else {
       let newArray = answerArray;
       const newObject = {
-        question: props.task.questions[0].question,
+        question: props.task.questions[questionNumber].question,
         answer: input,
       };
       newArray.push(newObject);
+      document.getElementById("inputArea").value = "";
       setAnswerArray(newArray);
       setQuestionNumber(Number(questionNumber + 1));
     }
@@ -41,6 +45,7 @@ function TaskForm(props) {
     const res = await fetch(`/api/tasksubmit`, options);
     const data = await res.json();
     props.setTaskAttempt(false);
+    props.checkCredentials();
     console.log(data);
   }
   //   submitTask();
@@ -50,8 +55,9 @@ function TaskForm(props) {
     return (
       <div>
         <form>
-          <p>{props.task.questions[0].question}</p>
+          <p>{props.task.questions[questionNumber].question}</p>
           <input
+            id="inputArea"
             type="text"
             onChange={(e) => {
               setInput(e.target.value);
