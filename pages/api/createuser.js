@@ -6,7 +6,6 @@ export default async function handler(req, res) {
   const collection = db.collection("student");
   // example to get a doc in collection
   const emailCheck = await collection.find({ email: req.body.email });
-  console.log(emailCheck._eventsCount);
   if (emailCheck._eventsCount == "0") {
     const doc = await collection.insertOne({
       name: req.body.name,
@@ -16,6 +15,7 @@ export default async function handler(req, res) {
       tasks: [],
       room: "unassigned",
       effort: "x",
+      join: req.body.join,
     });
     res.json("user created");
   } else {

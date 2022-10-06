@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const data = await collection
       .find({
         school: req.body.school,
-        schoolcode: req.body.schoolcode,
+        schoolCode: req.body.schoolcode,
       })
       .toArray();
     if (data[0] === undefined) {

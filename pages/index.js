@@ -10,7 +10,7 @@ function Home() {
       </button>
       <br />
       <button className="btn btn-secondary m-2">
-        <Link href={"/teacher"}>
+        <Link href={"/teacher/teacherlogin"}>
           <a className="text-decoration-none text-white">Teacher</a>
         </Link>
       </button>
