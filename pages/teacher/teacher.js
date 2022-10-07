@@ -28,7 +28,7 @@ function Teacher(props) {
       <div>
         <div className="container bg-light border-dark border rounded">
           <div className="container bg-secondary rounded my-4 p-2">
-            <h1>This is the student dashboard page of</h1>
+            <h1>Student list</h1>
           </div>
           {found ? (
             <RoomGrid rooms={rooms} students={students} />

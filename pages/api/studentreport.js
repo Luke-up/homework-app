@@ -1,6 +1,6 @@
 import clientPromise from "../../lib/mongodb";
-const jwt = require("jsonwebtoken");
 const ObjectId = require("mongodb").ObjectId;
+const jwt = require("jsonwebtoken");
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -12,8 +12,15 @@ export default async function handler(req, res) {
           const client = await clientPromise;
           const db = client.db("homework");
           const collection = db.collection("student");
-          const data = await collection.find({ _id: ObjectId(id) }).toArray();
-          res.send(data[0].tasks);
+          // example to get a doc in collection
+          const response = await collection
+            .find({
+              _id: ObjectId(req.body.id),
+            })
+            .toArray();
+          const teachCol = db.collection("teacher");
+          const teacher = await teachCol.find({ _id: ObjectId(id) }).toArray();
+          res.send([response, teacher[0].rooms]);
         }
         search();
       }

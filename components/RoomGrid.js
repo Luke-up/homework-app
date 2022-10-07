@@ -1,3 +1,6 @@
+import { Table } from "react-bootstrap";
+import Link from "next/link";
+
 function RoomGrid(props) {
   function effortSymbol(percentage) {
     if (percentage === "x") {
@@ -16,17 +19,40 @@ function RoomGrid(props) {
       return "D";
     }
   }
+  function completion(tasks) {
+    let count = 0;
+    let total = 0;
+    tasks.map((task) => {
+      if (task.complete === "true" || task.complete === "pending") {
+        count += 1;
+        total += 1;
+      } else {
+        total = +1;
+      }
+    });
+    return count + "/" + total;
+  }
+  function unmarked(tasks) {
+    let count = 0;
+    tasks.map((task) => {
+      if (task.complete === "pending") {
+        count = +1;
+      }
+    });
+    return count;
+  }
 
   return props.rooms.map((roomName) => {
-    console.log(roomName);
     return (
-      <div className="container rounded border my-2">
+      <div key={roomName} className="container rounded border my-2">
         <h1>{roomName}</h1>
-        <table>
+        <Table striped bordered hover>
           <thead>
             <tr>
               <th>Student name</th>
               <th>Effort symbol</th>
+              <th>Tasks complete</th>
+              <th>To be marked</th>
               <th>Join date</th>
             </tr>
           </thead>
@@ -34,16 +60,20 @@ function RoomGrid(props) {
             {props.students.map((student) => {
               if (student.room === roomName) {
                 return (
-                  <tr key={student._id}>
-                    <td>{student.name}</td>
-                    <td>{effortSymbol(student.effort)}</td>
-                    <td>{student.join}</td>
-                  </tr>
+                  <Link key={student._id} href={"/teacher/" + student._id}>
+                    <tr>
+                      <td>{student.name}</td>
+                      <td>{effortSymbol(student.effort)}</td>
+                      <td>{completion(student.tasks)}</td>
+                      <td>{unmarked(student.tasks)}</td>
+                      <td>{student.join}</td>
+                    </tr>
+                  </Link>
                 );
               }
             })}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   });

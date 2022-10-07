@@ -14,6 +14,7 @@ function wordbank(props) {
     //end point is different to the dashboard as it will return different information
     const res = await fetch(`/api/studentwordbank`, options);
     const data = await res.json();
+    console.log(data);
     setTasks(data);
     setFound(true);
   }

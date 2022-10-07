@@ -12,16 +12,15 @@ export default async function handler(req, res) {
       .toArray()
       .then((response) => {
         if (response.length === 0) {
-          res.send(req.body);
+          res.send("School not found");
         } else {
           collection
             .find({ school: req.body.school, password: req.body.password })
             .toArray()
             .then((response) => {
               if (response.length === 0) {
-                res.send("406");
+                res.send("Password incorrect");
               } else {
-                console.log(response[0]._id);
                 const payload = { id: response[0]._id };
                 const accessTOKEN = jwt.sign(
                   payload,
