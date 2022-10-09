@@ -3,11 +3,13 @@ import Layout from "../../components/TeacherLayout";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Assignments from "../../components/Assignments";
+import Wordbank from "../../components/Wordbank";
 
 function studentreport(props) {
   const [student, setStudent] = React.useState({});
   const [rooms, setRooms] = React.useState({});
   const [found, setFound] = React.useState(false);
+  const [veiw, setVeiw] = React.useState("assignments");
   const jsonWebToken = props.jwt;
 
   const router = useRouter();
@@ -41,6 +43,16 @@ function studentreport(props) {
     };
     const res = await fetch(`/api/changeroom`, options);
     const data = await res.json();
+  }
+
+  const currentVeiw = veiwSelect();
+
+  function veiwSelect() {
+    if (veiw == "assignments") {
+      return <Assignments student={student} />;
+    } else {
+      return <Wordbank student={student} />;
+    }
   }
 
   return (
@@ -86,9 +98,7 @@ function studentreport(props) {
               </span>
             </p>
           </div>
-          <div className="container border border-dark my-4 p-2">
-            <Assignments student={student} />
-          </div>
+          {currentVeiw}
         </div>
       ) : (
         "Loading"

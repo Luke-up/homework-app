@@ -1,62 +1,151 @@
 import Accordion from "react-bootstrap/Accordion";
+import Table from "react-bootstrap/Table";
+import Form from "react-bootstrap/Form";
 import React, { useEffect } from "react";
+import AssignmentElement from "./AssignmentElement";
 
 function Assignments(props) {
   const [tasks, setTasks] = React.useState([]);
+  const [pending, setPending] = React.useState(true);
+  const [complete, setComplete] = React.useState(true);
+  const [incomplete, setIncomplete] = React.useState(true);
 
+  function loadPage() {
+    if (props.student.tasks) {
+      setTasks(props.student.tasks);
+    }
+  }
+  function filterTable() {
+    const newArray = props.student.tasks;
+    const result = newArray.filter(checkComplete);
+    console.log(result);
+    setTasks(result);
+  }
   useEffect(() => {
-    setTasks(props.student.tasks);
+    loadPage();
   }, []);
 
-  let count = 0;
+  useEffect(() => {
+    filterTable();
+  }, [pending, complete, incomplete]);
 
-  function taskQuestions(task) {
-    if (task.complete === "true" || task.complete === "pending") {
-      return task.questions.map((question) => {
-        return (
-          <div>
-            <p>{question.question}</p>
-            <p>{question.answer}</p>
-          </div>
-        );
-      });
-    } else if (task.complete === "false") {
-      return task.questions.map((question) => {
-        return (
-          <div>
-            <p>{question.question}</p>
-          </div>
-        );
-      });
+  function checkComplete(task) {
+    if (!pending) {
+      if (!complete) {
+        if (!incomplete) {
+          return (
+            task.complete !== "pending" &&
+            task.complete !== "true" &&
+            task.complete !== "false"
+          );
+        } else {
+          return task.complete == "false";
+        }
+      } else if (!incomplete) {
+        return task.complete == "true";
+      } else {
+        return task.complete !== "pending";
+      }
+    } else if (!complete) {
+      if (!incomplete) {
+        return task.complete == "pending";
+      } else {
+        return task.complete !== "true";
+      }
+    } else if (!incomplete) {
+      return task.complete !== "false";
+    } else {
+      return task.complete !== "x";
+    }
+  }
+
+  function effortSymbol(percentage) {
+    if (percentage === "x") {
+      return "Pending";
+    } else if (percentage > 89) {
+      return "A+";
+    } else if (percentage > 79) {
+      return "A";
+    } else if (percentage > 69) {
+      return "B+";
+    } else if (percentage > 59) {
+      return "B";
+    } else if (percentage > 49) {
+      return "C";
+    } else {
+      return "D";
+    }
+  }
+
+  function checkBox(value) {
+    const formElement = document.getElementById(value + "Checkbox");
+    if (formElement.checked === true) {
+      formElement.setAttribute("checked", false);
+      if (formElement.value === "pending") {
+        setPending(true);
+      } else if (formElement.value === "complete") {
+        setComplete(true);
+      } else {
+        setIncomplete(true);
+      }
+    } else {
+      formElement.setAttribute("checked", true);
+      if (formElement.value === "pending") {
+        setPending(false);
+      } else if (formElement.value === "complete") {
+        setComplete(false);
+      } else {
+        setIncomplete(false);
+      }
     }
   }
 
   return (
-    <Accordion>
-      {tasks.map((task) => {
-        count += 1;
-        return (
-          <Accordion.Item eventKey={count} key={task.title}>
-            <Accordion.Header>{task.title}</Accordion.Header>
-            <Accordion.Body>
-              <h3>{task.text}</h3>
-              {task.words
-                ? task.words.map((word) => {
-                    return (
-                      <div key={word.word}>
-                        <p>{word.word}</p>
-                        <p>{word.definition}</p>
-                        <p>{word.sentence}</p>
-                      </div>
-                    );
-                  })
-                : ""}
-              {taskQuestions(task)}
-            </Accordion.Body>
-          </Accordion.Item>
-        );
-      })}
-    </Accordion>
+    <div className="container my-4 border">
+      <div className="container fs-4 my-2 border-bottom">
+        <div className="row">
+          <div className="col">
+            <p>
+              Effort symbol ={" "}
+              <span className="container rounded">
+                {effortSymbol(props.student.effort)}
+              </span>
+            </p>
+          </div>
+          <div className="col">
+            <Form.Check
+              type="checkbox"
+              label="pending tasks"
+              value="pending"
+              defaultChecked
+              onClick={(e) => checkBox(e.target.value)}
+              id="pendingCheckbox"
+            />
+          </div>
+          <div className="col">
+            <Form.Check
+              type="checkbox"
+              label="completed tasks"
+              value="complete"
+              defaultChecked
+              onClick={(e) => checkBox(e.target.value)}
+              id="completeCheckbox"
+            />
+          </div>
+          <div className="col">
+            <Form.Check
+              type="checkbox"
+              label="incompleted tasks"
+              value="incomplete"
+              defaultChecked
+              onClick={(e) => checkBox(e.target.value)}
+              id="incompleteCheckbox"
+            />
+          </div>
+        </div>
+      </div>
+      <AssignmentElement tasks={tasks} />
+    </div>
   );
 }
 
