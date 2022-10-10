@@ -7,6 +7,7 @@ import Wordbank from "../../components/Wordbank";
 
 function studentreport(props) {
   const [student, setStudent] = React.useState({});
+  const [tasks, setTasks] = React.useState([]);
   const [rooms, setRooms] = React.useState({});
   const [found, setFound] = React.useState(false);
   const [veiw, setVeiw] = React.useState("assignments");
@@ -25,6 +26,7 @@ function studentreport(props) {
     const data = await res.json();
     setFound(true);
     setStudent(data[0][0]);
+    setTasks(data[0][0].tasks);
     setRooms(data[1]);
   }
   useEffect(() => {
@@ -49,9 +51,16 @@ function studentreport(props) {
 
   function veiwSelect() {
     if (veiw == "assignments") {
-      return <Assignments student={student} />;
+      return (
+        <Assignments
+          tasks={tasks}
+          setTasks={setTasks}
+          jsonWebToken={jsonWebToken}
+          effort={student.effort}
+        />
+      );
     } else {
-      return <Wordbank student={student} />;
+      return <Wordbank tasks={tasks} />;
     }
   }
 

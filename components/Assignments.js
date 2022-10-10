@@ -11,12 +11,12 @@ function Assignments(props) {
   const [incomplete, setIncomplete] = React.useState(true);
 
   function loadPage() {
-    if (props.student.tasks) {
-      setTasks(props.student.tasks);
+    if (props.tasks) {
+      setTasks(props.tasks);
     }
   }
   function filterTable() {
-    const newArray = props.student.tasks;
+    const newArray = props.tasks;
     const result = newArray.filter(checkComplete);
     console.log(result);
     setTasks(result);
@@ -108,7 +108,7 @@ function Assignments(props) {
             <p>
               Effort symbol ={" "}
               <span className="container rounded">
-                {effortSymbol(props.student.effort)}
+                {effortSymbol(props.effort)}
               </span>
             </p>
           </div>
@@ -144,7 +144,11 @@ function Assignments(props) {
           </div>
         </div>
       </div>
-      <AssignmentElement tasks={tasks} />
+      <AssignmentElement
+        tasks={tasks}
+        setTasks={props.setTasks}
+        jsonWebToken={props.jsonWebToken}
+      />
     </div>
   );
 }

@@ -7,7 +7,7 @@ function Wordbank(props) {
   const [tasks, setTasks] = React.useState([]);
 
   useEffect(() => {
-    setTasks(props.student.tasks);
+    setTasks(props.tasks);
   });
 
   function wordCount() {
