@@ -23,6 +23,7 @@ function Teacher(props) {
     setStudents(data[0]);
     setRooms(data[1]);
     setFound(true);
+    console.log(data);
   }
   useEffect(() => {
     checkCredentials();
@@ -58,6 +59,26 @@ function Teacher(props) {
     const data = await res.json();
   }
 
+  function removeRoom(roomName) {
+    let roomArray = rooms.filter((room) => room !== roomName);
+    setRooms(roomArray);
+    updateSchoolRooms(roomArray);
+    async function deleteRequest(roomName) {
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          jwt: jsonWebToken,
+          roomName: roomName,
+        }),
+      };
+      const res = await fetch(`/api/deleteroom`, options);
+      const data = await res.json();
+    }
+    deleteRequest(roomName);
+    checkCredentials();
+  }
+
   return (
     <Layout>
       <div>
@@ -67,13 +88,48 @@ function Teacher(props) {
           </div>
           {found ? (
             <div>
-              <RoomGrid
-                rooms={rooms}
-                students={students}
-                setRooms={setRooms}
-                jsonWebToken={jsonWebToken}
-              />
-              <div id="tempRoom" style={{ display: "none" }}>
+              {rooms.map((roomName) => {
+                return (
+                  <div key={roomName} className="container rounded border my-2">
+                    <h1>
+                      {roomName}{" "}
+                      {roomName !== "unassigned" ? (
+                        <span className="float-end fs-6">
+                          <button
+                            onClick={() => removeRoom(roomName)}
+                            className="btn btn-outline-secondary my-2"
+                          >
+                            Remove room
+                          </button>
+                        </span>
+                      ) : (
+                        ""
+                      )}
+                    </h1>
+                    <RoomGrid students={students} roomName={roomName} />
+                  </div>
+                );
+              })}
+              <div
+                id="tempRoom"
+                className="container rounded border my-2"
+                style={{ display: "none" }}
+              >
+                <h1>
+                  {newRoom}{" "}
+                  <span className="float-end fs-6">
+                    <button
+                      onClick={() => {
+                        removeRoom(newRoom);
+                        let tempRoom = document.getElementById("tempRoom");
+                        tempRoom.style.display = "none";
+                      }}
+                      className="btn btn-outline-secondary my-2"
+                    >
+                      Remove room
+                    </button>
+                  </span>
+                </h1>
                 <RoomGrid rooms={[newRoom]} />
               </div>
             </div>
