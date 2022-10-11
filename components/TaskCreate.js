@@ -6,14 +6,7 @@ import React, { useEffect } from "react";
 function TaskCreate(props) {
   const [title, setTitle] = React.useState("");
   const [text, setText] = React.useState("");
-  const [words, setWords] = React.useState([
-    {
-      word: "Kick",
-      definition: "Action of foot swinging to hit something ",
-      sentence: "I kick the ball",
-      index: 0,
-    },
-  ]);
+  const [words, setWords] = React.useState([]);
   const [questions, setQuestions] = React.useState([]);
   const [count, setCount] = React.useState("");
 
@@ -25,7 +18,7 @@ function TaskCreate(props) {
       word: word.value,
       definition: definition.value,
       sentence: sentence.value,
-      index: count,
+      id: count,
     };
     console.log(newWord);
     let array = [...words, newWord];
@@ -34,11 +27,26 @@ function TaskCreate(props) {
     definition.value = " ";
     sentence.value = " ";
   }
+  function addQuestion() {
+    let question = document.getElementById("question");
+    const newQuestion = {
+      question: question.value,
+      id: count,
+    };
+    console.log(newQuestion);
+    let array = [...questions, newQuestion];
+    setQuestions(array);
+    question.value = " ";
+  }
 
-  useEffect(() => {
-    let newCount = count;
-    setCount(newCount++);
-  }, words);
+  useEffect(
+    () => {
+      let newCount = count;
+      setCount(newCount++);
+    },
+    words,
+    questions
+  );
 
   // async function postTask() {
   //   const task = {
@@ -72,7 +80,26 @@ function TaskCreate(props) {
             {word.word} <span className="border">{word.definition}</span>{" "}
             <span className="border">{word.sentence}</span>{" "}
             <span>
-              <button onClick={() => removeWord(word.index)}>RemoveWord</button>
+              <button onClick={() => removeWord(word.id)}>RemoveWord</button>
+            </span>
+          </p>
+        </div>
+      );
+    });
+  }
+
+  const showQuestions = questionRender();
+
+  function questionRender() {
+    return questions.map((question) => {
+      return (
+        <div>
+          <p>
+            {question.question}{" "}
+            <span>
+              <button onClick={() => removeQuestion(question.id)}>
+                Remove this question
+              </button>
             </span>
           </p>
         </div>
@@ -104,6 +131,18 @@ function TaskCreate(props) {
           </Form.Group>
           <button onClick={() => addWord()} className="mb-3 border p-2 w-100">
             New word
+          </button>
+          <p className="fs-4">Questions</p>
+          <div className="mb-3 border p-2">{showQuestions}</div>
+          <Form.Group className="mb-3 border p-2">
+            <Form.Label className="fs-5">Question</Form.Label>
+            <Form.Control type="text" id="question" />
+          </Form.Group>
+          <button
+            onClick={() => addQuestion()}
+            className="mb-3 border p-2 w-100"
+          >
+            New question
           </button>
         </div>
       </div>
