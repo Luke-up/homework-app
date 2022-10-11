@@ -31,7 +31,7 @@ function AssignmentElement(props) {
           </tbody>
         </Table>
       );
-    } else if (task.complete === "false") {
+    } else {
       return (
         <Table>
           <thead>
@@ -65,7 +65,36 @@ function AssignmentElement(props) {
     props.setTasks(newArray);
   }
 
+  function deleteTaskRecord(task) {
+    const informationBar = document.getElementById(task.title);
+    informationBar.style.display = "none";
+    async function deleteFromDatabase(task) {
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          jwt: props.jsonWebToken,
+          task: task,
+        }),
+      };
+      const res = await fetch(`/api/deleteTask`, options);
+      const data = await res.json();
+    }
+    deleteFromDatabase(task);
+  }
+
   function editButtons(task) {
+    if (props.original) {
+      return (
+        <Button
+          className="float-end"
+          variant="danger"
+          onClick={() => deleteTaskRecord(task)}
+        >
+          Delete task record
+        </Button>
+      );
+    }
     return (
       <ButtonGroup className="float-end" aria-label="Basic example">
         <Button

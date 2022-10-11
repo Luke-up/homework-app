@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 
 export default async function handler(req, res) {
   jwt.verify(req.body.jwt, process.env.ACCESS_TOKEN_SECRET, (err, id) => {
-    console.log("req body name = " + req.body.roomName);
     if (err) {
       res.send(err.message);
     } else {

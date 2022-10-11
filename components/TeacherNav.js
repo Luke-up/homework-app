@@ -28,6 +28,13 @@ function TeacherNav() {
                 </Link>
               </li>
               <li>
+                <Link href={"/teacher/tasks"}>
+                  <a className="dropdown-item" href="#">
+                    Tasks
+                  </a>
+                </Link>
+              </li>
+              <li>
                 <Link href={"/teacher/help"}>
                   <a className="dropdown-item" href="#">
                     Help
