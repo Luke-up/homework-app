@@ -59,7 +59,11 @@ function Tasks(props) {
                 <select onChange={(e) => setCurrent(e.target.value)}>
                   {found
                     ? rooms.map((room) => {
-                        return <option value={room}>{room}</option>;
+                        return (
+                          <option key={room} value={room}>
+                            {room}
+                          </option>
+                        );
                       })
                     : ""}
                 </select>

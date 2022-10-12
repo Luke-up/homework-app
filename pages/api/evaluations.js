@@ -23,7 +23,11 @@ export default async function handler(req, res) {
           studentBody.map((student) => {
             return student.tasks.map((task) => {
               if (task.complete === "pending") {
-                const answerObject = { studentName: student.name, task: task };
+                const answerObject = {
+                  studentName: student.name,
+                  id: student._id,
+                  task: task,
+                };
                 answersArray.push(answerObject);
               }
             });

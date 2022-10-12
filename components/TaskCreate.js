@@ -77,7 +77,7 @@ function TaskCreate(props) {
   function wordRender() {
     return words.map((word) => {
       return (
-        <div className="my-2 row">
+        <div key={word.word} className="my-2 row">
           <div className="fs-3 col-2">{word.word}</div>
           <div className="col-4 fs-4">{word.definition}</div>{" "}
           <div className="col-4">{word.sentence}</div>{" "}
@@ -99,7 +99,7 @@ function TaskCreate(props) {
   function questionRender() {
     return questions.map((question) => {
       return (
-        <div>
+        <div key={question.id}>
           <p>
             {question.question}{" "}
             <span className="float-end">
