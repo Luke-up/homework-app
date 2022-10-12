@@ -17,7 +17,7 @@ export default async function handler(req, res) {
             { _id: ObjectId(id) },
             { $pull: { tasks: { title: req.body.task.title } } }
           );
-          res.send("task deleted");
+          res.send(["task: " + req.body.task.title + " deleted"]);
         }
         deleteTasks();
       }

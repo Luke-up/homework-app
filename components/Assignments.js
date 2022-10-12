@@ -148,6 +148,7 @@ function Assignments(props) {
         tasks={tasks}
         setTasks={props.setTasks}
         jsonWebToken={props.jsonWebToken}
+        original={false}
       />
     </div>
   );

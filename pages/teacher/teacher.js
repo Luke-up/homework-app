@@ -23,7 +23,6 @@ function Teacher(props) {
     setStudents(data[0]);
     setRooms(data[1]);
     setFound(true);
-    console.log(data);
   }
   useEffect(() => {
     checkCredentials();
@@ -74,9 +73,9 @@ function Teacher(props) {
       };
       const res = await fetch(`/api/deleteroom`, options);
       const data = await res.json();
+      await checkCredentials();
     }
     deleteRequest(roomName);
-    checkCredentials();
   }
 
   return (

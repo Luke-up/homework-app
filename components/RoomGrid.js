@@ -28,7 +28,7 @@ function RoomGrid(props) {
         count += 1;
         total += 1;
       } else {
-        total = +1;
+        total += 1;
       }
     });
     return count + "/" + total;

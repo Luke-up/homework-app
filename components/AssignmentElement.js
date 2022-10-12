@@ -77,8 +77,9 @@ function AssignmentElement(props) {
           task: task,
         }),
       };
-      const res = await fetch(`/api/deleteTask`, options);
+      const res = await fetch(`/api/deletetask`, options);
       const data = await res.json();
+      console.log(data[0]);
     }
     deleteFromDatabase(task);
   }
@@ -162,12 +163,17 @@ function AssignmentElement(props) {
   return (
     <Accordion>
       {" "}
-      <div className="row fs-4 px-2">
-        <p className="col">Title</p>
-        <p className="col">Complete</p>
-        <p className="col">Effort</p>
-        <p className="col">Date</p>
-      </div>
+      {props.original ? (
+        <div className="row fs-4 px-2">
+          <p className="col">Title</p>
+        </div>
+      ) : (
+        <div className="row fs-4 px-2">
+          <p className="col">Title</p>
+          <p className="col">Complete</p>
+          <p className="col">Effort</p>
+        </div>
+      )}
       {props.tasks.map((task) => {
         count += 1;
         return (
@@ -183,7 +189,6 @@ function AssignmentElement(props) {
               <p className="col">
                 {task.complete === "true" ? task.effort : ""}
               </p>
-              <p className="col">{task.title}</p>
             </Accordion.Header>
             <Accordion.Body>
               {editButtons(task)}

@@ -23,7 +23,6 @@ function TaskHistory(props) {
     let tasksArray = data;
     let newArray = tasksArray.filter(filterTasks);
     setTasks(newArray);
-    console.log(newArray);
     setFound(true);
   }
 
