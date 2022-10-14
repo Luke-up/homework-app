@@ -1,17 +1,18 @@
-import { useEffect } from "react";
 import Link from "next/link";
 
+//Navigation bar for the teacher side of the application
+//Menu items for the dashboard, task setting, task marking, help page and the logout button
 function TeacherNav() {
   return (
-    <div className="bg-info py-2 mb-2">
+    <div className="py-2 border-dark border-bottom bg-papersBanner mb-2">
       <div className="row px-2">
         <div className="col">
-          <h1>Heading of app</h1>
+          <div className="logo-icon p-5 float-start"></div>
         </div>
         <div className="col text-end">
           <div className="dropdown m-3">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-secondary my-3 dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
               id="dropdownMenuButton1"
@@ -21,28 +22,28 @@ function TeacherNav() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <Link href={"/teacher/teacher"}>
+                <Link href={"/Teacher/Teacher"}>
                   <a className="dropdown-item" href="#">
                     Dashboard
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/teacher/tasks"}>
+                <Link href={"/Teacher/Tasks"}>
                   <a className="dropdown-item" href="#">
                     Tasks
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/teacher/evaluations"}>
+                <Link href={"/Teacher/Evaluations"}>
                   <a className="dropdown-item" href="#">
                     Evaluations
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/teacher/help"}>
+                <Link href={"/Teacher/Help"}>
                   <a className="dropdown-item" href="#">
                     Help
                   </a>

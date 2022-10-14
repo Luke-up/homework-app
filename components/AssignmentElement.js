@@ -1,18 +1,16 @@
-import Accordion from "react-bootstrap/Accordion";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Form from "react-bootstrap/Form";
-import React, { useEffect } from "react";
+import { Accordion, Table, Button, ButtonGroup, Form } from "react-bootstrap";
+import React from "react";
 import { useRouter } from "next/router";
 
+//Renders an accordian component showing the tasks and details for both students and teachers.
 function AssignmentElement(props) {
+  //Renders question answers if the were entered
   function taskQuestions(task) {
     if (task.complete === "true" || task.complete === "pending") {
       return (
         <Table>
           <thead>
-            <tr>
+            <tr className="font-ubuntu">
               <th>Question</th>
               <th>Answer</th>
             </tr>
@@ -21,7 +19,7 @@ function AssignmentElement(props) {
             {task.questions
               ? task.questions.map((question) => {
                   return (
-                    <tr key={String(question.question)}>
+                    <tr className="font-ubuntu" key={String(question.question)}>
                       <td>{question.question}</td>
                       <td>{question.answer}</td>
                     </tr>
@@ -36,14 +34,14 @@ function AssignmentElement(props) {
         <Table>
           <thead>
             <tr>
-              <th>Question</th>
+              <th className="font-ubuntu">Question</th>
             </tr>
           </thead>
           <tbody>
             {task.questions
               ? task.questions.map((question) => {
                   return (
-                    <tr key={String(question.question)}>
+                    <tr className="font-ubuntu" key={String(question.question)}>
                       <td>{question.question}</td>
                     </tr>
                   );
@@ -55,9 +53,10 @@ function AssignmentElement(props) {
     }
   }
 
+  //Function removes the current task from the array
+  //Function sets a different effort value to the task, then adds it back to the array
   function effortChange(letter, thisTask) {
     let newArray = props.tasks.filter((task) => task.title !== thisTask.title);
-    console.log(letter + thisTask);
     let alterTask = thisTask;
     alterTask.effort = letter;
     newArray.push(alterTask);
@@ -65,6 +64,7 @@ function AssignmentElement(props) {
     props.setTasks(newArray);
   }
 
+  //Function deletes the task from the teacher document in the database
   function deleteTaskRecord(task) {
     const informationBar = document.getElementById(task.title);
     informationBar.style.display = "none";
@@ -77,13 +77,13 @@ function AssignmentElement(props) {
           task: task,
         }),
       };
-      const res = await fetch(`/api/deletetask`, options);
-      const data = await res.json();
-      console.log(data[0]);
+      await fetch(`/api/deletetask`, options);
     }
     deleteFromDatabase(task);
   }
 
+  //Function conditionally renders delete button linked to the teacher database
+  //Function conditionally renders 3 buttons to edit the data for individual students
   function editButtons(task) {
     if (props.original) {
       return (
@@ -125,6 +125,7 @@ function AssignmentElement(props) {
     );
   }
 
+  //Function will make the task available for the student to try again
   function openTask(thisTask) {
     let newArray = props.tasks.filter((task) => task.title !== thisTask.title);
     let openedTask = thisTask;
@@ -133,6 +134,8 @@ function AssignmentElement(props) {
     postChanges(newArray);
     props.setTasks(newArray);
   }
+
+  //Function will delete selected task for student
   function deleteTask(thisTask) {
     let newArray = props.tasks.filter((task) => task.title !== thisTask.title);
     const element = document.getElementById(thisTask.title);
@@ -141,11 +144,15 @@ function AssignmentElement(props) {
     props.setTasks(newArray);
   }
 
+  //counted used as id when mapping array
   let count = 0;
 
+  //ID of the student is taken from the url params
+  //Used by teacher user when editing student data
   const router = useRouter();
   const { id } = router.query;
 
+  //Function saves alterations to data in the database
   async function postChanges(taskArray) {
     const options = {
       method: "POST",
@@ -156,17 +163,14 @@ function AssignmentElement(props) {
         tasks: taskArray,
       }),
     };
-    const res = await fetch(`/api/postchanges`, options);
-    const data = await res.json();
+    await fetch(`/api/postchanges`, options);
   }
 
   return (
     <Accordion>
       {" "}
       {props.original ? (
-        <div className="row fs-4 px-2">
-          <p className="col">Title</p>
-        </div>
+        ""
       ) : (
         <div className="row fs-4 px-2">
           <p className="col">Title</p>
@@ -178,24 +182,28 @@ function AssignmentElement(props) {
         count += 1;
         return (
           <Accordion.Item
-            className="border-light bg-light"
+            className="border border-light"
             eventKey={count}
             key={task.title}
             id={task.title}
           >
             <Accordion.Header className="py-0 rounded border">
-              <p className="col">{task.title}</p>
-              <p className="col">{task.complete}</p>
+              <p className="col fs-4">{task.title}</p>
+              {props.original ? "" : <p className="col">{task.complete}</p>}
+
               <p className="col">
                 {task.complete === "true" ? task.effort : ""}
               </p>
             </Accordion.Header>
-            <Accordion.Body>
+            <Accordion.Body className="bg-light">
               {editButtons(task)}
-              <h3>{task.text}</h3>
+              <div className="w-75">
+                <h3>{task.text}</h3>
+              </div>
+
               <Table>
                 <thead>
-                  <tr>
+                  <tr className="font-ubuntu">
                     <th>Word</th>
                     <th>Definition</th>
                     <th>Sentence</th>
@@ -205,7 +213,7 @@ function AssignmentElement(props) {
                   {task.words
                     ? task.words.map((word) => {
                         return (
-                          <tr key={word.word}>
+                          <tr className="font-ubuntu" key={word.word}>
                             <td>{word.word}</td>
                             <td>{word.definition}</td>
                             <td>{word.sentence}</td>

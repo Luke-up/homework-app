@@ -1,15 +1,13 @@
 import React, { useEffect } from "react";
 import Layout from "../../components/TeacherLayout";
-import RoomGrid from "../../components/RoomGrid";
-import InputGroup from "react-bootstrap/InputGroup";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { Accordion, Table } from "react-bootstrap";
+import { InputGroup, Button, Form, Accordion, Table } from "react-bootstrap";
 
 function Evaluations(props) {
+  //Array holds all tasks marked pending in the school
   const [evaluations, setEvaluations] = React.useState([]);
   const jsonWebToken = props.jwt;
 
+  //Function returns all tasks from students in the school, marked pending
   async function getSubmissions() {
     const options = {
       method: "POST",
@@ -24,15 +22,14 @@ function Evaluations(props) {
     getSubmissions();
   }, []);
 
+  //Function saves task to database with allocated effort symbol and the complete task marker
   async function submitEvaluation(id, title, task) {
     let item = document.getElementById(id + title);
     item.style.display = "none";
-    console.log(id);
     let effortSymbol = document.getElementById(id + title + "effort");
     let markedTask = task;
     task.effort = effortSymbol.value;
     task.complete = "true";
-    console.log(markedTask);
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -42,44 +39,49 @@ function Evaluations(props) {
         task: markedTask,
       }),
     };
-    const res = await fetch(`/api/setevaluation`, options);
-    const data = await res.json();
-    console.log(data);
+    await fetch(`/api/setevaluation`, options);
   }
 
+  //count used for id values in mapped arrays
   let count = 0;
+
   return (
     <Layout>
       <div>
-        <div className="container bg-light border-dark border rounded">
-          <div className="container bg-secondary rounded my-4 p-2">
-            <h1>Pending evaluations</h1>
+        <div className="container bg-bookShelf border border-dark p-4">
+          <div className="container text-center my-3 p-2">
+            <h1 className="bg-white w-50 mx-auto rounded border">
+              Pending evaluations
+            </h1>
           </div>
-          <div className="container rounded border my-2">
+          <div className="container my-2 p-4">
             <Accordion>
               {" "}
-              <div className="row fs-4 px-2">
-                <p className="col">Student</p>
-                <p className="col">Task title</p>
+              <div className="row fs-4 p-2 bg-green rounded border border-dark">
+                <p className="col fs-3 font-ubuntu">Student</p>
+                <p className="col fs-3 font-ubuntu">Task title</p>
               </div>
               {evaluations
                 ? evaluations.map((evaluation) => {
                     count++;
                     return (
                       <Accordion.Item
-                        className="bg-light"
                         eventKey={count}
                         key={count}
                         id={evaluation.id + evaluation.task.title}
                       >
                         <Accordion.Header className="fs-3">
-                          <p className="col">{evaluation.studentName}</p>
-                          <p className="col">{evaluation.task.title}</p>
+                          <p className="col fs-4 font-ubuntu">
+                            {evaluation.studentName}
+                          </p>
+                          <p className="col fs-4 font-ubuntu">
+                            {evaluation.task.title}
+                          </p>
                         </Accordion.Header>
                         <Accordion.Body>
                           <Table>
                             <thead>
-                              <tr>
+                              <tr className="fs-4 font-ubuntu">
                                 <th>Question</th>
                                 <th>Answer</th>
                               </tr>
@@ -87,7 +89,10 @@ function Evaluations(props) {
                             <tbody>
                               {evaluation.task.questions.map((question) => {
                                 return (
-                                  <tr>
+                                  <tr
+                                    className="fs-4 font-ubuntu"
+                                    key={question.question}
+                                  >
                                     <td>{question.question}</td>
                                     <td>{question.answer}</td>
                                   </tr>
@@ -95,7 +100,7 @@ function Evaluations(props) {
                               })}
                             </tbody>
                           </Table>
-                          <InputGroup className="my-4">
+                          <InputGroup className="my-4 font-ubuntu">
                             <Form.Select
                               id={
                                 evaluation.id + evaluation.task.title + "effort"

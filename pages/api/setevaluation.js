@@ -24,6 +24,14 @@ export default async function handler(req, res) {
               },
             }
           );
+          collection.updateOne(
+            { _id: ObjectId(req.body.id) },
+            {
+              $set: {
+                effort: req.body.task.effort,
+              },
+            }
+          );
           res.send(["Task marked : " + req.body.task.title]);
         }
         setEffort();

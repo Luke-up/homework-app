@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 import Layout from "../../components/TeacherLayout";
 import RoomGrid from "../../components/RoomGrid";
-import InputGroup from "react-bootstrap/InputGroup";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import { InputGroup, Button, Form } from "react-bootstrap";
 
 function Teacher(props) {
+  //Array of all students for this school
   const [students, setStudents] = React.useState([]);
+  //Array of all rooms for this school
   const [rooms, setRooms] = React.useState([]);
+  //Boolean to allow content to render on the condition that the fetch request succeeds
   const [found, setFound] = React.useState(false);
+  //State for the function to create a new room
   const [newRoom, setNewRoom] = React.useState("newRoom");
 
+  //Initial fetch request saves all required data to state
   const jsonWebToken = props.jwt;
   async function checkCredentials() {
     const options = {
@@ -28,6 +31,7 @@ function Teacher(props) {
     checkCredentials();
   }, []);
 
+  //Function reveals hidden input and submit button
   function createNewRoom() {
     let button = document.getElementById("newRoomButton");
     button.style.display = "none";
@@ -35,33 +39,34 @@ function Teacher(props) {
     submit.style.display = "block";
   }
 
-  function addRoom() {
+  //Function adds a new room to the array
+  //Function hides the input and submit button again
+  async function addRoom() {
     let button = document.getElementById("newRoomButton");
     button.style.display = "block";
     let submit = document.getElementById("addButton");
     submit.style.display = "none";
-    let newArray = rooms;
-    newArray.push(newRoom);
-    setRooms(newArray);
-    updateSchoolRooms(newArray);
-    let tempRoom = document.getElementById("tempRoom");
-    tempRoom.style.display = "block";
+    setRooms([...rooms, newRoom]);
+    await updateSchoolRooms(rooms);
   }
 
+  //Function makes a post request to the database to add the new room
   async function updateSchoolRooms(newArray) {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ jwt: jsonWebToken, rooms: newArray }),
     };
-    const res = await fetch(`/api/addrooms`, options);
-    const data = await res.json();
+    await fetch(`/api/addrooms`, options);
   }
 
-  function removeRoom(roomName) {
+  //Function removes room from state array
+  //Function calls fetch request to remove the room from the database for the teacher
+  async function removeRoom(roomName) {
     let roomArray = rooms.filter((room) => room !== roomName);
     setRooms(roomArray);
-    updateSchoolRooms(roomArray);
+    await updateSchoolRooms(roomArray);
+    //Function deletes the room field of every student previous in the room
     async function deleteRequest(roomName) {
       const options = {
         method: "POST",
@@ -71,8 +76,8 @@ function Teacher(props) {
           roomName: roomName,
         }),
       };
-      const res = await fetch(`/api/deleteroom`, options);
-      const data = await res.json();
+      await fetch(`/api/deleteroom`, options);
+      //Reload the page
       await checkCredentials();
     }
     deleteRequest(roomName);
@@ -81,16 +86,21 @@ function Teacher(props) {
   return (
     <Layout>
       <div>
-        <div className="container bg-light border-dark border rounded">
-          <div className="container bg-secondary rounded my-4 p-2">
-            <h1>Student list</h1>
+        <div className="container bg-bookShelf border border-dark p-4">
+          <div className="container text-center my-3 p-2">
+            <h1 className="bg-white w-25 mx-auto rounded border">
+              Student list
+            </h1>
           </div>
           {found ? (
             <div>
               {rooms.map((roomName) => {
                 return (
-                  <div key={roomName} className="container rounded border my-2">
-                    <h1>
+                  <div
+                    key={roomName}
+                    className="container text-center rounded p-4 my-3"
+                  >
+                    <h2 className="bg-white w-25 mx-auto mb-4 rounded border">
                       {roomName}{" "}
                       {roomName !== "unassigned" ? (
                         <span className="float-end fs-6">
@@ -104,40 +114,18 @@ function Teacher(props) {
                       ) : (
                         ""
                       )}
-                    </h1>
+                    </h2>
                     <RoomGrid students={students} roomName={roomName} />
                   </div>
                 );
               })}
-              <div
-                id="tempRoom"
-                className="container rounded border my-2"
-                style={{ display: "none" }}
-              >
-                <h1>
-                  {newRoom}{" "}
-                  <span className="float-end fs-6">
-                    <button
-                      onClick={() => {
-                        removeRoom(newRoom);
-                        let tempRoom = document.getElementById("tempRoom");
-                        tempRoom.style.display = "none";
-                      }}
-                      className="btn btn-outline-secondary my-2"
-                    >
-                      Remove room
-                    </button>
-                  </span>
-                </h1>
-                <RoomGrid rooms={[newRoom]} />
-              </div>
             </div>
           ) : (
             <p>loading</p>
           )}
           <div id="newRoom">
             <div style={{ display: "none" }} id="addButton">
-              <InputGroup className="mb-3">
+              <InputGroup className="">
                 <Form.Control
                   id="roomName"
                   placeholder="Room name"
@@ -156,10 +144,10 @@ function Teacher(props) {
             </div>
 
             <Button
-              variant="outline-secondary"
+              variant="light"
               id="newRoomButton"
               onClick={() => createNewRoom()}
-              className="container rounded border fs-4 my-2 w-100"
+              className="container rounded border border-dark fs-4 my-2 w-100"
             >
               Create new room
             </Button>

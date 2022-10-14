@@ -25,6 +25,64 @@ a {
   }
 }
 
-.accordion-button{
-  background: none;
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url('../fonts/Ubuntu-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bg-papers{
+  background: url("../pages/images/papersCorner.svg");
+  background-size: contain;
+  background-position:bottom left;
+  background-repeat: no-repeat;
+}
+.bg-papersFlip{
+  background: url("../pages/images/papersCornerFlip.svg");
+  background-size: contain;
+  background-position:bottom right;
+  background-repeat: no-repeat;
+}
+.bg-papersFull{
+  background: url("../pages/images/papers.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.logo-icon{
+  background: url("../pages/images/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.bg-papersBanner{
+  background: url("../pages/images/paperBanner.svg");
+  background-size: cover;
+  background-position: center ;
+  background-repeat: no-repeat;
+}
+.bg-bookShelf{
+  background: url("../pages/images/bookShelf.svg");
+  background-size: 40em;
+  background-position: center top;
+
+}
+h1, 
+h2, 
+h3{
+ font-family: 'Ubuntu', sans-serif;
+}
+.bg-green{
+background-color:rgb(194, 225, 194);
+}
+.bg-yellow{
+  background-color:rgb(255, 255, 255);
+}
+.font-ubuntu{
+  font-family: 'Ubuntu', sans-serif;
+}
+.text-black{
+  color: black;
 }

@@ -35,18 +35,16 @@ function TaskHistory(props) {
   }, [props.roomName]);
 
   return (
-    <div className="container my-4 border">
-      <div className="container fs-4 my-2 border-bottom">
-        {found ? (
-          <AssignmentElement
-            tasks={tasks}
-            jsonWebToken={props.jsonWebToken}
-            original={true}
-          />
-        ) : (
-          ""
-        )}
-      </div>
+    <div className="py-3">
+      {found ? (
+        <AssignmentElement
+          tasks={tasks}
+          jsonWebToken={props.jsonWebToken}
+          original={true}
+        />
+      ) : (
+        ""
+      )}
     </div>
   );
 }

@@ -4,7 +4,6 @@ const ObjectId = require("mongodb").ObjectId;
 
 export default async function handler(req, res) {
   jwt.verify(req.body.jwt, process.env.ACCESS_TOKEN_SECRET, (err, id) => {
-    console.log(req.body.task);
     if (err) {
       res.send(err.message);
     } else {

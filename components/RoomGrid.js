@@ -1,7 +1,8 @@
 import { Table } from "react-bootstrap";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 
+//Function
 function RoomGrid(props) {
   function effortSymbol(percentage) {
     if (percentage === "x") {
@@ -44,9 +45,9 @@ function RoomGrid(props) {
   }
 
   return (
-    <Table striped bordered hover>
+    <Table striped bordered hover className="border-dark">
       <thead>
-        <tr>
+        <tr className="bg-green fs-4 text-center font-ubuntu">
           <th>Student name</th>
           <th>Effort symbol</th>
           <th>Tasks complete</th>
@@ -60,7 +61,7 @@ function RoomGrid(props) {
               if (student.room === props.roomName) {
                 return (
                   <Link key={student._id} href={"/teacher/" + student._id}>
-                    <tr>
+                    <tr className="bg-green fs-4 text-center font-ubuntu">
                       <td>{student.name}</td>
                       <td>{effortSymbol(student.effort)}</td>
                       <td>{completion(student.tasks)}</td>

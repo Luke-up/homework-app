@@ -1,19 +1,16 @@
-import { Table } from "react-bootstrap";
-import Link from "next/link";
-import React, { useEffect } from "react";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
+import React from "react";
+import { Tab, Tabs } from "react-bootstrap";
 import RoomGrid from "./RoomGrid";
 import TaskHistory from "./TaskHistory";
 import TaskCreate from "./TaskCreate";
 
 function TaskFolder(props) {
   return (
-    <div>
+    <div className="mt-2 p-3">
       <Tabs
-        defaultActiveKey="profile"
+        defaultActiveKey="students"
         id="uncontrolled-tab-example"
-        className="mb-3"
+        className="mb-3 font-ubuntu fs-5"
       >
         <Tab eventKey="history" title="Task history">
           {" "}

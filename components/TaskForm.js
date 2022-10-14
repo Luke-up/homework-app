@@ -48,8 +48,6 @@ function TaskForm(props) {
     props.checkCredentials();
     console.log(data);
   }
-  //   submitTask();
-  // checkCredentials();
 
   if (questionNumber < props.task.questions.length) {
     return (
