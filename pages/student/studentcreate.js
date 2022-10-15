@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
+import { Form, InputGroup } from "react-bootstrap";
 
-function Studentcreate() {
+function StudentCreate() {
   const router = useRouter();
   async function checkSchool() {
     const school = document.getElementById("school").value;
@@ -62,11 +63,20 @@ function Studentcreate() {
   }
 
   return (
-    <div>
+    <div className="container text-center mt-5 rounded bg-papersFlip border border-dark w-50 p-5">
       <h1>Create new user</h1>
-      <input type="text" id="name" placeholder="name" />
-      <input type="text" id="email" placeholder="email adress" />
-      <input type="password" id="password" placeholder="password" />
+      <InputGroup className="my-3 mx-auto">
+        <InputGroup.Text> Name</InputGroup.Text>
+        <Form.Control type="text" id="name" placeholder="name" />
+      </InputGroup>
+      <InputGroup className="my-3 mx-auto">
+        <InputGroup.Text> Email</InputGroup.Text>
+        <Form.Control type="text" id="email" placeholder="email adress" />
+      </InputGroup>
+      <InputGroup className="my-3 mx-auto">
+        <InputGroup.Text>Password</InputGroup.Text>
+        <Form.Control type="password" id="password" placeholder="password" />
+      </InputGroup>
       <input
         type="password"
         id="passwordCheck"
@@ -81,4 +91,4 @@ function Studentcreate() {
   );
 }
 
-export default Studentcreate;
+export default StudentCreate;

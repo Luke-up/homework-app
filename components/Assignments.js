@@ -1,13 +1,15 @@
-import Accordion from "react-bootstrap/Accordion";
-import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import React, { useEffect } from "react";
 import AssignmentElement from "./AssignmentElement";
 
 function Assignments(props) {
+  //Array holds all tasks in student document
   const [tasks, setTasks] = React.useState([]);
+  //Boolean used to conditionally render pending tasks
   const [pending, setPending] = React.useState(true);
+  //Boolean used to conditionally render complete tasks
   const [complete, setComplete] = React.useState(true);
+  //Boolean used to conditionally render incomplete tasks
   const [incomplete, setIncomplete] = React.useState(true);
 
   function loadPage() {
@@ -15,10 +17,11 @@ function Assignments(props) {
       setTasks(props.tasks);
     }
   }
+
+  //Function filters out tasks objects that have incorrect completion values
   function filterTable() {
     const newArray = props.tasks;
     const result = newArray.filter(checkComplete);
-    console.log(result);
     setTasks(result);
   }
   useEffect(() => {
@@ -29,6 +32,7 @@ function Assignments(props) {
     filterTable();
   }, [pending, complete, incomplete]);
 
+  //Function returns the task objects that have completion values corresponding to those in state
   function checkComplete(task) {
     if (!pending) {
       if (!complete) {
@@ -59,24 +63,7 @@ function Assignments(props) {
     }
   }
 
-  function effortSymbol(percentage) {
-    if (percentage === "x") {
-      return "Pending";
-    } else if (percentage > 89) {
-      return "A+";
-    } else if (percentage > 79) {
-      return "A";
-    } else if (percentage > 69) {
-      return "B+";
-    } else if (percentage > 59) {
-      return "B";
-    } else if (percentage > 49) {
-      return "C";
-    } else {
-      return "D";
-    }
-  }
-
+  //Function to set boolean values corresponding to checkbox clicks in state
   function checkBox(value) {
     const formElement = document.getElementById(value + "Checkbox");
     if (formElement.checked === true) {
@@ -101,15 +88,13 @@ function Assignments(props) {
   }
 
   return (
-    <div className="container my-4 border">
+    <div className="container my-4 border bg-light font-ubuntu rounded p-3">
       <div className="container fs-4 my-2 border-bottom">
         <div className="row">
           <div className="col">
             <p>
               Effort symbol ={" "}
-              <span className="container rounded">
-                {effortSymbol(props.effort)}
-              </span>
+              <span className="container rounded">{props.effort}</span>
             </p>
           </div>
           <div className="col">

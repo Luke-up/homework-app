@@ -98,11 +98,7 @@ function AssignmentElement(props) {
     }
     return (
       <ButtonGroup className="float-end" aria-label="Basic example">
-        <Button
-          className="w-100"
-          variant="secondary"
-          onClick={() => openTask(task)}
-        >
+        <Button className="w-100" variant="info" onClick={() => openTask(task)}>
           Re-open task
         </Button>
         <Form.Select onChange={(e) => effortChange(e.target.value, task)}>
@@ -117,7 +113,7 @@ function AssignmentElement(props) {
         <Button
           onClick={() => deleteTask(task)}
           className="w-100"
-          variant="secondary"
+          variant="danger"
         >
           Delete Task
         </Button>
@@ -172,7 +168,7 @@ function AssignmentElement(props) {
       {props.original ? (
         ""
       ) : (
-        <div className="row fs-4 px-2">
+        <div className="row fs-4 px-2 font-ubuntu">
           <p className="col">Title</p>
           <p className="col">Complete</p>
           <p className="col">Effort</p>
@@ -189,9 +185,13 @@ function AssignmentElement(props) {
           >
             <Accordion.Header className="py-0 rounded border">
               <p className="col fs-4">{task.title}</p>
-              {props.original ? "" : <p className="col">{task.complete}</p>}
+              {props.original ? (
+                ""
+              ) : (
+                <p className="col fs-4">{task.complete}</p>
+              )}
 
-              <p className="col">
+              <p className="col fs-4">
                 {task.complete === "true" ? task.effort : ""}
               </p>
             </Accordion.Header>

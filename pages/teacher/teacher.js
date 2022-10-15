@@ -100,8 +100,8 @@ function Teacher(props) {
                     key={roomName}
                     className="container text-center rounded p-4 my-3"
                   >
-                    <h2 className="bg-white w-25 mx-auto mb-4 rounded border">
-                      {roomName}{" "}
+                    <h2 className="bg-white w-25 rounded border">
+                      Room: {roomName}{" "}
                       {roomName !== "unassigned" ? (
                         <span className="float-end fs-6">
                           <button

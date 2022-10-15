@@ -4,23 +4,7 @@ import React from "react";
 
 //Function
 function RoomGrid(props) {
-  function effortSymbol(percentage) {
-    if (percentage === "x") {
-      return "Pending";
-    } else if (percentage > 89) {
-      return "A+";
-    } else if (percentage > 79) {
-      return "A";
-    } else if (percentage > 69) {
-      return "B+";
-    } else if (percentage > 59) {
-      return "B";
-    } else if (percentage > 49) {
-      return "C";
-    } else {
-      return "D";
-    }
-  }
+  //Function returns number of completed tasks over total
   function completion(tasks) {
     let count = 0;
     let total = 0;
@@ -34,6 +18,8 @@ function RoomGrid(props) {
     });
     return count + "/" + total;
   }
+
+  //Function returns number of tasks that are yet to be marked
   function unmarked(tasks) {
     let count = 0;
     tasks.map((task) => {
@@ -44,6 +30,8 @@ function RoomGrid(props) {
     return count;
   }
 
+  //Renders table of all students passed via props and links to a page generated dynamically
+  //Link passes the student ID as a url param
   return (
     <Table striped bordered hover className="border-dark">
       <thead>
@@ -60,10 +48,10 @@ function RoomGrid(props) {
           ? props.students.map((student) => {
               if (student.room === props.roomName) {
                 return (
-                  <Link key={student._id} href={"/teacher/" + student._id}>
-                    <tr className="bg-green fs-4 text-center font-ubuntu">
+                  <Link key={student._id} href={"/Teacher/" + student._id}>
+                    <tr className="bg-light fs-4 text-center font-ubuntu">
                       <td>{student.name}</td>
-                      <td>{effortSymbol(student.effort)}</td>
+                      <td>{student.effort}</td>
                       <td>{completion(student.tasks)}</td>
                       <td>{unmarked(student.tasks)}</td>
                       <td>{student.join}</td>
