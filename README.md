@@ -22,7 +22,7 @@ This web application was designed using Next.js and MongoDB to demonstrate proff
 - Additionally see the live application hosted on vercel by clicking this link.
 ---
 ## Usage
-- Initially you will be prompted with this home screen on which you can choose either teacher or student.[images/home.JPG](https://github.com/Luke-up/homework-app/blob/0da0b7cd44070628f2eb1ab09b2121bb8fd3fbe7/images/home.JPG)
+- Initially you will be prompted with this home screen on which you can choose either teacher or student.![home screen](https://github.com/Luke-up/homework-app/blob/0da0b7cd44070628f2eb1ab09b2121bb8fd3fbe7/images/home.JPG)
 - To set up a new school navigate to teacher and then to 'create new school'
 - Enter your details on the form, take care to choose your school name and simple joining code.
 - To add students to your school direct users to click ' student ' from the home screen and ' create new user '
