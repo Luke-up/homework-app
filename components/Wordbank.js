@@ -6,7 +6,7 @@ function Wordbank(props) {
 
   useEffect(() => {
     setTasks(props.tasks);
-  });
+  }, []);
 
   function wordCount() {
     let count = 0;
