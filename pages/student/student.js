@@ -22,7 +22,9 @@ function Student(props) {
     setFound(true);
   }
   useEffect(() => {
-    checkCredentials();
+    if (!props.test) {
+      checkCredentials();
+    }
   }, []);
 
   //Fucntion returns the number of completed tasks in student data

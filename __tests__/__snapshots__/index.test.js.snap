@@ -1,0 +1,1415 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI  help renders correctly 1`] = `
+<div>
+  <div
+    className="py-2 border-dark border-bottom bg-papersBanner mb-2"
+  >
+    <div
+      className="row px-2"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="logo-icon p-5 float-start"
+        />
+      </div>
+      <div
+        className="col text-end"
+      >
+        <div
+          className="dropdown m-3"
+        >
+          <button
+            aria-expanded="false"
+            className="btn btn-secondary my-3 dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="dropdownMenuButton1"
+            type="button"
+          >
+            Menu
+          </button>
+          <ul
+            aria-labelledby="dropdownMenuButton1"
+            className="dropdown-menu"
+          >
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Tasks
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Evaluations
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Help
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div>
+      <div
+        className="container bg-bookShelf border border-dark p-4"
+      >
+        <div
+          className="container text-center my-3 p-2"
+        >
+          <h1
+            className="bg-white w-25 mx-auto rounded border"
+          >
+            Help
+          </h1>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-1"
+          />
+          <p
+            className="col-4 fs-3 bg-green p-4 pt-5 me-3 rounded "
+          >
+            <span
+              className="fs-1"
+            >
+              Dashboard.
+            </span>
+            <br />
+            Short summary of all rooms in this school.
+            <br />
+            Individual students can be accessed from this screen.
+            <br />
+            New rooms can be created as the bottom of this screen.
+          </p>
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Picture of the dashboard"
+              className="col-6"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+            <noscript>
+              <img
+                alt="Picture of the dashboard"
+                className="col-6"
+                data-nimg="intrinsic"
+                decoding="async"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style={
+                  {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+          </span>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-1"
+          />
+          <p
+            className="col-4 fs-3 bg-green p-4 pt-5 me-3 rounded "
+          >
+            <span
+              className="fs-1"
+            >
+              Task screen.
+            </span>
+            <br />
+            Short summary of all previous tasks in this room.
+            <br />
+            Contains a student list for this room.
+            <br />
+            Contains a form for creating new tasks.
+          </p>
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Picture of the tasks screen"
+              className="col-6"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+            <noscript>
+              <img
+                alt="Picture of the tasks screen"
+                className="col-6"
+                data-nimg="intrinsic"
+                decoding="async"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style={
+                  {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+          </span>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-1"
+          />
+          <p
+            className="col-4 fs-3 bg-green p-4 pt-5 me-3 rounded "
+          >
+            <span
+              className="fs-1"
+            >
+              Individual student screen.
+            </span>
+            <br />
+            Short summary of all tasks for this student.
+            <br />
+            Select menu to change room.
+            <br />
+            Options to alter task data for individual tasks.
+          </p>
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Picture of the student screen"
+              className="col-6"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+            <noscript>
+              <img
+                alt="Picture of the student screen"
+                className="col-6"
+                data-nimg="intrinsic"
+                decoding="async"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style={
+                  {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+          </span>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-1"
+          />
+          <p
+            className="col-4 fs-3 bg-green p-4 pt-5 me-3 rounded "
+          >
+            <span
+              className="fs-1"
+            >
+              Evaluations screen.
+            </span>
+            <br />
+            List of all completed tasks ready for marking.
+            <br />
+            Grading selections for each task.
+          </p>
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Picture of the evaluations screen"
+              className="col-6"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+            <noscript>
+              <img
+                alt="Picture of the evaluations screen"
+                className="col-6"
+                data-nimg="intrinsic"
+                decoding="async"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style={
+                  {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`UI  help renders correctly 2`] = `
+<div>
+  <div
+    className="py-2 border-dark border-bottom bg-papersBanner2 mb-2"
+  >
+    <div
+      className="row px-2"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="logo-icon2 p-5 float-start"
+        />
+      </div>
+      <div
+        className="col text-end"
+      >
+        <div
+          className="dropdown m-3"
+        >
+          <button
+            aria-expanded="false"
+            className="btn btn-secondary my-3 dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="dropdownMenuButton1"
+            type="button"
+          >
+            Menu
+          </button>
+          <ul
+            aria-labelledby="dropdownMenuButton1"
+            className="dropdown-menu"
+          >
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Profile
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Assignments
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Wordbank
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Help
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div>
+      <div
+        className="container bg-bookShelf2 border border-dark p-4"
+      >
+        <div
+          className="container text-center my-3 p-2"
+        >
+          <h1
+            className="bg-white w-25 mx-auto rounded border"
+          >
+            Help
+          </h1>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-1"
+          />
+          <p
+            className="col-4 fs-3 bg-blue text-light p-4 pt-5 me-3 rounded "
+          >
+            <span
+              className="fs-1"
+            >
+              Dashboard.
+            </span>
+            <br />
+            Summary of user progress and most recent homework reading
+          </p>
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Picture of the dashboard"
+              className="col-6"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+            <noscript>
+              <img
+                alt="Picture of the dashboard"
+                className="col-6"
+                data-nimg="intrinsic"
+                decoding="async"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style={
+                  {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+          </span>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-1"
+          />
+          <p
+            className="col-4 fs-3 bg-blue text-light p-4 pt-5 me-3 rounded "
+          >
+            <span
+              className="fs-1"
+            >
+              Assignments screen.
+            </span>
+            <br />
+            List of all the assignments.
+            <br />
+            Badges for the tasks to be completed.
+            <br />
+            Links to the task submission forms.
+          </p>
+          <span
+            style={
+              {
+                "background": "none",
+                "border": 0,
+                "boxSizing": "border-box",
+                "display": "inline-block",
+                "height": "initial",
+                "margin": 0,
+                "maxWidth": "100%",
+                "opacity": 1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "relative",
+                "width": "initial",
+              }
+            }
+          >
+            <span
+              style={
+                {
+                  "background": "none",
+                  "border": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": "initial",
+                  "margin": 0,
+                  "maxWidth": "100%",
+                  "opacity": 1,
+                  "padding": 0,
+                  "width": "initial",
+                }
+              }
+            >
+              <img
+                alt=""
+                aria-hidden={true}
+                src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2724%27%20height=%2724%27/%3e"
+                style={
+                  {
+                    "background": "none",
+                    "border": 0,
+                    "display": "block",
+                    "height": "initial",
+                    "margin": 0,
+                    "maxWidth": "100%",
+                    "opacity": 1,
+                    "padding": 0,
+                    "width": "initial",
+                  }
+                }
+              />
+            </span>
+            <img
+              alt="Picture of the assignments screen"
+              className="col-6"
+              data-nimg="intrinsic"
+              decoding="async"
+              onError={[Function]}
+              onLoad={[Function]}
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style={
+                {
+                  "border": "none",
+                  "bottom": 0,
+                  "boxSizing": "border-box",
+                  "display": "block",
+                  "height": 0,
+                  "left": 0,
+                  "margin": "auto",
+                  "maxHeight": "100%",
+                  "maxWidth": "100%",
+                  "minHeight": "100%",
+                  "minWidth": "100%",
+                  "objectFit": undefined,
+                  "objectPosition": undefined,
+                  "padding": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "width": 0,
+                }
+              }
+            />
+            <noscript>
+              <img
+                alt="Picture of the assignments screen"
+                className="col-6"
+                data-nimg="intrinsic"
+                decoding="async"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcSet="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style={
+                  {
+                    "border": "none",
+                    "bottom": 0,
+                    "boxSizing": "border-box",
+                    "display": "block",
+                    "height": 0,
+                    "left": 0,
+                    "margin": "auto",
+                    "maxHeight": "100%",
+                    "maxWidth": "100%",
+                    "minHeight": "100%",
+                    "minWidth": "100%",
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "padding": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                    "width": 0,
+                  }
+                }
+              />
+            </noscript>
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`UI  student dash renders correctly 1`] = `
+<div>
+  <div
+    className="py-2 border-dark border-bottom bg-papersBanner2 mb-2"
+  >
+    <div
+      className="row px-2"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="logo-icon2 p-5 float-start"
+        />
+      </div>
+      <div
+        className="col text-end"
+      >
+        <div
+          className="dropdown m-3"
+        >
+          <button
+            aria-expanded="false"
+            className="btn btn-secondary my-3 dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="dropdownMenuButton1"
+            type="button"
+          >
+            Menu
+          </button>
+          <ul
+            aria-labelledby="dropdownMenuButton1"
+            className="dropdown-menu"
+          >
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Profile
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Assignments
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Wordbank
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Help
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div>
+      <div
+        className="container bg-bookShelf2 border border-dark p-4"
+      >
+        <div
+          className="container bg-blue border border-dark text-light rounded my-4 p-2"
+        >
+          <h1>
+            My dashboard
+          </h1>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="col-lg-4 col-sm-6"
+          >
+            <div
+              className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+            >
+              <p />
+            </div>
+            <div
+              className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+            >
+              <p>
+                Room: 
+              </p>
+            </div>
+          </div>
+          <div
+            className="col-lg-4 col-sm-6"
+          >
+            <div
+              className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+            >
+              Tasks completed: 
+            </div>
+            <div
+              className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+            >
+              Tasks due: 
+            </div>
+          </div>
+          <div
+            className="col-lg-4 col-sm-6"
+          >
+            <div
+              className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+            >
+              Words studied: 
+            </div>
+            <div
+              className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+            >
+              Recent task effort: 
+            </div>
+          </div>
+        </div>
+        <div
+          className="container bg-blue border text-light border-dark rounded my-4 p-2"
+        >
+          <h1>
+            New reading
+          </h1>
+        </div>
+        <div
+          className="container rounded bg-light border border-dark my-4 text-center p-2 fs-4"
+        />
+      </div>
+    </div>
+  </main>
+</div>
+`;
+
+exports[`UI  teacher dash renders correctly 1`] = `
+<div>
+  <div
+    className="py-2 border-dark border-bottom bg-papersBanner mb-2"
+  >
+    <div
+      className="row px-2"
+    >
+      <div
+        className="col"
+      >
+        <div
+          className="logo-icon p-5 float-start"
+        />
+      </div>
+      <div
+        className="col text-end"
+      >
+        <div
+          className="dropdown m-3"
+        >
+          <button
+            aria-expanded="false"
+            className="btn btn-secondary my-3 dropdown-toggle"
+            data-bs-toggle="dropdown"
+            id="dropdownMenuButton1"
+            type="button"
+          >
+            Menu
+          </button>
+          <ul
+            aria-labelledby="dropdownMenuButton1"
+            className="dropdown-menu"
+          >
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Tasks
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Evaluations
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Help
+              </a>
+            </li>
+            <li>
+              <a
+                className="dropdown-item"
+                href="#"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+                onTouchStart={[Function]}
+              >
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div>
+      <div
+        className="container bg-bookShelf border border-dark p-4"
+      >
+        <div
+          className="container text-center my-3 p-2"
+        >
+          <h1
+            className="bg-white w-25 mx-auto rounded border"
+          >
+            Student list
+          </h1>
+        </div>
+        <p>
+          loading
+        </p>
+        <div
+          id="newRoom"
+        >
+          <div
+            id="addButton"
+            style={
+              {
+                "display": "none",
+              }
+            }
+          >
+            <div
+              className="input-group"
+            >
+              <input
+                aria-describedby="basic-addon2"
+                aria-label="Recipient's username"
+                className="form-control"
+                id="roomName"
+                onChange={[Function]}
+                placeholder="Room name"
+              />
+              <button
+                className="btn btn-outline-secondary"
+                disabled={false}
+                id="button-addon2"
+                onClick={[Function]}
+                type="button"
+              >
+                Add room
+              </button>
+            </div>
+          </div>
+          <button
+            className="container rounded border border-dark fs-4 my-2 w-100 btn btn-light"
+            disabled={false}
+            id="newRoomButton"
+            onClick={[Function]}
+            type="button"
+          >
+            Create new room
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;

@@ -28,7 +28,9 @@ function Teacher(props) {
     setFound(true);
   }
   useEffect(() => {
-    checkCredentials();
+    if (!props.test) {
+      checkCredentials();
+    }
   }, []);
 
   //Function reveals hidden input and submit button

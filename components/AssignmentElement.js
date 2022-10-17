@@ -143,13 +143,12 @@ function AssignmentElement(props) {
   //counted used as id when mapping array
   let count = 0;
 
-  //ID of the student is taken from the url params
-  //Used by teacher user when editing student data
-  const router = useRouter();
-  const { id } = router.query;
-
   //Function saves alterations to data in the database
   async function postChanges(taskArray) {
+    //ID of the student is taken from the url params
+    //Used by teacher user when editing student data
+    const router = useRouter();
+    const { id } = router.query;
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
