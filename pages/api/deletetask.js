@@ -2,6 +2,7 @@ import clientPromise from "../../lib/mongodb";
 const jwt = require("jsonwebtoken");
 const ObjectId = require("mongodb").ObjectId;
 
+//Delete task from array in teacher document
 export default async function handler(req, res) {
   jwt.verify(req.body.jwt, process.env.ACCESS_TOKEN_SECRET, (err, id) => {
     if (err) {

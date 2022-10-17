@@ -46,8 +46,10 @@ function Teacher(props) {
     button.style.display = "block";
     let submit = document.getElementById("addButton");
     submit.style.display = "none";
+    let newArray = rooms;
     setRooms([...rooms, newRoom]);
-    await updateSchoolRooms(rooms);
+    newArray.push(newRoom);
+    await updateSchoolRooms(newArray);
   }
 
   //Function makes a post request to the database to add the new room
@@ -100,13 +102,13 @@ function Teacher(props) {
                     key={roomName}
                     className="container text-center rounded p-4 my-3"
                   >
-                    <h2 className="bg-white w-25 rounded border">
+                    <h2 className="bg-white text-start rounded border p-3">
                       Room: {roomName}{" "}
                       {roomName !== "unassigned" ? (
                         <span className="float-end fs-6">
                           <button
                             onClick={() => removeRoom(roomName)}
-                            className="btn btn-outline-secondary my-2"
+                            className="btn btn-secondary"
                           >
                             Remove room
                           </button>

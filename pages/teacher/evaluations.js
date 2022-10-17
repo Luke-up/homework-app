@@ -7,7 +7,7 @@ function Evaluations(props) {
   const [evaluations, setEvaluations] = React.useState([]);
   const jsonWebToken = props.jwt;
 
-  //Function returns all tasks from students in the school, marked pending
+  //Function returns all tasks from students in the school marked pending
   async function getSubmissions() {
     const options = {
       method: "POST",

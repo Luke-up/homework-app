@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Form, InputGroup } from "react-bootstrap";
 
+//Function creates a new school document in Mongo
 function Schoolcreate() {
   const router = useRouter();
 
@@ -58,8 +59,7 @@ function Schoolcreate() {
         password: password,
       }),
     };
-    const res = await fetch(`/api/createschool`, options);
-    const data = await res.json();
+    await fetch(`/api/createschool`, options);
     alert("School created");
     router.push("/");
   }

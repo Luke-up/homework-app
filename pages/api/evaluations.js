@@ -2,6 +2,8 @@ import clientPromise from "../../lib/mongodb";
 const jwt = require("jsonwebtoken");
 const ObjectId = require("mongodb").ObjectId;
 
+//Find all task objects in all student documents in the school
+//Respond with all tasks which have a complete value of pending
 export default async function handler(req, res) {
   jwt.verify(req.body.jwt, process.env.ACCESS_TOKEN_SECRET, (err, id) => {
     if (err) {
@@ -14,7 +16,6 @@ export default async function handler(req, res) {
           const collection = db.collection("teacher");
           const data = await collection.find({ _id: ObjectId(id) }).toArray();
           const school = data[0].school;
-
           const studentCol = db.collection("student");
           const studentBody = await studentCol
             .find({ school: school })

@@ -1,13 +1,14 @@
-import Accordion from "react-bootstrap/Accordion";
-import Table from "react-bootstrap/Table";
-import Form from "react-bootstrap/Form";
 import React, { useEffect } from "react";
 import AssignmentElement from "./AssignmentElement";
 
+//Function finds all tasks in school with matching room name
 function TaskHistory(props) {
+  //Array holds all matching tasks
   const [tasks, setTasks] = React.useState([]);
+  //Boolean used to conditionally render elements on successful fetch request
   const [found, setFound] = React.useState(false);
 
+  //Fetch request returns all tasks in school and displays tasks in current room
   async function getTasks() {
     const options = {
       method: "POST",
@@ -17,12 +18,14 @@ function TaskHistory(props) {
         roomName: props.roomName,
       }),
     };
-    //end point is different to the dashboard as it will return different information
     const res = await fetch(`/api/gettasks`, options);
     const data = await res.json();
-    let tasksArray = data;
-    let newArray = tasksArray.filter(filterTasks);
-    setTasks(newArray);
+    console.log(data);
+    if (data !== 404) {
+      let tasksArray = data;
+      let newArray = tasksArray.filter(filterTasks);
+      setTasks(newArray);
+    }
     setFound(true);
   }
 

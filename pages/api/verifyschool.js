@@ -1,5 +1,6 @@
 import clientPromise from "../../lib/mongodb";
 
+//Check for a school and ensure matching school code
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const client = await clientPromise;

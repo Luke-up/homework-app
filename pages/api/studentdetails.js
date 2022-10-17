@@ -2,6 +2,7 @@ import clientPromise from "../../lib/mongodb";
 const jwt = require("jsonwebtoken");
 const ObjectId = require("mongodb").ObjectId;
 
+//Send some data points from student document
 export default async function handler(req, res) {
   if (req.method === "POST") {
     jwt.verify(req.body.jwt, process.env.ACCESS_TOKEN_SECRET, (err, id) => {

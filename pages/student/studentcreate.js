@@ -2,8 +2,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Form, InputGroup } from "react-bootstrap";
 
+//Renders form to create a new student user
 function StudentCreate() {
   const router = useRouter();
+
+  //Function finds the school document in mongo and checks for matching code
   async function checkSchool() {
     const school = document.getElementById("school").value;
     const schoolCode = document.getElementById("schoolCode").value;
@@ -17,6 +20,7 @@ function StudentCreate() {
     return await data;
   }
 
+  //Function checks form fields
   async function submitData() {
     const passwordOne = document.getElementById("password").value;
     const passwordTwo = document.getElementById("passwordCheck").value;
@@ -34,6 +38,7 @@ function StudentCreate() {
     }
   }
 
+  //Function submits the new student data and creates a new document in mongo
   async function createUser() {
     const school = document.getElementById("school").value;
     const passwordOne = document.getElementById("password").value;
@@ -63,7 +68,7 @@ function StudentCreate() {
   }
 
   return (
-    <div className="container text-center mt-5 rounded bg-papersFlip border border-dark w-50 p-5">
+    <div className="container text-center mt-5 rounded bg-papersFlip2 border border-dark w-50 p-5">
       <h1>Create new user</h1>
       <InputGroup className="my-3 mx-auto">
         <InputGroup.Text> Name</InputGroup.Text>
@@ -77,13 +82,22 @@ function StudentCreate() {
         <InputGroup.Text>Password</InputGroup.Text>
         <Form.Control type="password" id="password" placeholder="password" />
       </InputGroup>
-      <input
-        type="password"
-        id="passwordCheck"
-        placeholder="confirm password"
-      />
-      <input type="text" id="school" placeholder="school name" />
-      <input type="text" id="schoolCode" placeholder="school code" />
+      <InputGroup className="my-3 mx-auto">
+        <InputGroup.Text>Password</InputGroup.Text>
+        <Form.Control
+          type="password"
+          id="passwordCheck"
+          placeholder="confirm password"
+        />
+      </InputGroup>
+      <InputGroup className="my-3 mx-auto">
+        <InputGroup.Text>School</InputGroup.Text>
+        <Form.Control type="text" id="school" placeholder="school name" />
+      </InputGroup>
+      <InputGroup className="my-3 mx-auto">
+        <InputGroup.Text>Code</InputGroup.Text>
+        <Form.Control type="text" id="schoolCode" placeholder="school code" />
+      </InputGroup>
       <button className="btn btn-secondary m-2" onClick={() => submitData()}>
         Create
       </button>

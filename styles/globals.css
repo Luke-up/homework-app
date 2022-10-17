@@ -39,8 +39,20 @@ a {
   background-position:bottom left;
   background-repeat: no-repeat;
 }
+.bg-papers2{
+  background: url("../pages/images/papersCorner2.svg");
+  background-size: contain;
+  background-position:bottom left;
+  background-repeat: no-repeat;
+}
 .bg-papersFlip{
   background: url("../pages/images/papersCornerFlip.svg");
+  background-size: contain;
+  background-position:bottom right;
+  background-repeat: no-repeat;
+}
+.bg-papersFlip2{
+  background: url("../pages/images/papersCornerFlip2.svg");
   background-size: contain;
   background-position:bottom right;
   background-repeat: no-repeat;
@@ -57,8 +69,20 @@ a {
   background-repeat: no-repeat;
   background-position: center;
 }
+.logo-icon2{
+  background: url("../pages/images/logo2.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .bg-papersBanner{
   background: url("../pages/images/paperBanner.svg");
+  background-size: cover;
+  background-position: center ;
+  background-repeat: no-repeat;
+}
+.bg-papersBanner2{
+  background: url("../pages/images/paperBanner2.svg");
   background-size: cover;
   background-position: center ;
   background-repeat: no-repeat;
@@ -67,7 +91,11 @@ a {
   background: url("../pages/images/bookShelf.svg");
   background-size: 40em;
   background-position: center top;
-
+}
+.bg-bookShelf2{
+  background: url("../pages/images/bookShelf2.svg");
+  background-size: 40em;
+  background-position: center top;
 }
 h1, 
 h2, 
@@ -77,6 +105,9 @@ h3{
 .bg-green{
 background-color:rgb(194, 225, 194);
 }
+.bg-blue{
+  background-color:rgb(70, 65, 65);
+  }
 .bg-yellow{
   background-color:rgb(255, 255, 255);
 }

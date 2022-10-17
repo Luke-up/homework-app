@@ -1,12 +1,13 @@
 import clientPromise from "../../lib/mongodb";
 const jwt = require("jsonwebtoken");
 
+//Check password and student name match in student doc
+//Create JWT and send
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const client = await clientPromise;
     const db = client.db("homework");
     const collection = db.collection("student");
-    // example to get a doc in collection
     await collection
       .find({ name: req.body.type })
       .toArray()

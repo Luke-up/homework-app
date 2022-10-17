@@ -1,6 +1,4 @@
-import Accordion from "react-bootstrap/Accordion";
 import Table from "react-bootstrap/Table";
-import Form from "react-bootstrap/Form";
 import React, { useEffect } from "react";
 
 function Wordbank(props) {
@@ -21,15 +19,15 @@ function Wordbank(props) {
   }
 
   return (
-    <div className="container my-4 border">
-      <h1>
+    <div className="container bg-light my-4 border">
+      <h1 className="w-100">
         Wordbank{" "}
         <span className="container border rounded fs-3">{wordCount()}</span>
       </h1>
 
       <Table>
         <thead>
-          <tr>
+          <tr className="bg-green rounded">
             <th>Word</th>
             <th>Sentence</th>
             <th>Definition</th>

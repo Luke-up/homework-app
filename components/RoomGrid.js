@@ -6,17 +6,14 @@ import React from "react";
 function RoomGrid(props) {
   //Function returns number of completed tasks over total
   function completion(tasks) {
-    let count = 0;
+    let complete = 0;
     let total = 0;
     tasks.map((task) => {
       if (task.complete === "true" || task.complete === "pending") {
-        count += 1;
-        total += 1;
-      } else {
-        total += 1;
+        complete += 1;
       }
     });
-    return count + "/" + total;
+    return complete + "/" + tasks.length;
   }
 
   //Function returns number of tasks that are yet to be marked
@@ -24,7 +21,7 @@ function RoomGrid(props) {
     let count = 0;
     tasks.map((task) => {
       if (task.complete === "pending") {
-        count = +1;
+        count += 1;
       }
     });
     return count;

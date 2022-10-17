@@ -27,7 +27,7 @@ function StudentLogin(props) {
     }
   }
   return (
-    <div className="container text-center mt-5 rounded bg-papers border border-dark w-50 p-5">
+    <div className="container text-center mt-5 rounded bg-papers2 border border-dark w-50 p-5">
       <h1 className="my-3">Student login page</h1>
       <InputGroup className="my-3 mx-auto">
         <InputGroup.Text> Name</InputGroup.Text>
