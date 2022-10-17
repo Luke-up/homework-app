@@ -38,7 +38,7 @@ function Wordbank(props) {
             if (task.complete === "true") {
               return task.words.map((word) => {
                 return (
-                  <tr>
+                  <tr key={word.word}>
                     <td>{word.word}</td>
                     <td>{word.definition}</td>
                     <td>{word.sentence}</td>

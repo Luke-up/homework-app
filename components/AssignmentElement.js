@@ -60,7 +60,7 @@ function AssignmentElement(props) {
     let alterTask = thisTask;
     alterTask.effort = letter;
     newArray.push(alterTask);
-    postChanges(newArray);
+    PostChanges(newArray);
     props.setTasks(newArray);
   }
 
@@ -127,7 +127,7 @@ function AssignmentElement(props) {
     let openedTask = thisTask;
     openedTask.complete = "false";
     newArray.push(openedTask);
-    postChanges(newArray);
+    PostChanges(newArray);
     props.setTasks(newArray);
   }
 
@@ -136,7 +136,7 @@ function AssignmentElement(props) {
     let newArray = props.tasks.filter((task) => task.title !== thisTask.title);
     const element = document.getElementById(thisTask.title);
     element.style.display = "none";
-    postChanges(newArray);
+    PostChanges(newArray);
     props.setTasks(newArray);
   }
 
@@ -144,7 +144,7 @@ function AssignmentElement(props) {
   let count = 0;
 
   //Function saves alterations to data in the database
-  async function postChanges(taskArray) {
+  async function PostChanges(taskArray) {
     //ID of the student is taken from the url params
     //Used by teacher user when editing student data
     const router = useRouter();
