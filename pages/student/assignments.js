@@ -60,7 +60,7 @@ function assignments(props) {
             <tbody>
               {task.questions.map((a) => {
                 return (
-                  <tr key="a.question">
+                  <tr key={a.question}>
                     <td>{a.question}</td>
                     <td>{a.answer}</td>
                   </tr>
