@@ -7,7 +7,6 @@ function RoomGrid(props) {
   //Function returns number of completed tasks over total
   function completion(tasks) {
     let complete = 0;
-    let total = 0;
     tasks.map((task) => {
       if (task.complete === "true" || task.complete === "pending") {
         complete += 1;

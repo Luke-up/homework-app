@@ -22,28 +22,28 @@ function TeacherNav() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <Link href={"/Teacher/Teacher"}>
+                <Link href={"/Teacher/teacher"}>
                   <a className="dropdown-item" href="#">
                     Dashboard
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Teacher/Tasks"}>
+                <Link href={"/Teacher/tasks"}>
                   <a className="dropdown-item" href="#">
                     Tasks
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Teacher/Evaluations"}>
+                <Link href={"/Teacher/evaluations"}>
                   <a className="dropdown-item" href="#">
                     Evaluations
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Teacher/Help"}>
+                <Link href={"/Teacher/help"}>
                   <a className="dropdown-item" href="#">
                     Help
                   </a>

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Form, InputGroup } from "react-bootstrap";
 
-function TeacherLogin(props) {
+function teacherlogin(props) {
   //State contains the inputs to be sent via fetch request
   const [school, setSchool] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -23,7 +23,7 @@ function TeacherLogin(props) {
     //The JWT is saved in the Layout component to be passed through props to different pages
     props.setJwt(jwt.accesstoken);
     if (jwt.accesstoken) {
-      router.push("/Teacher/Teacher");
+      router.push("/Teacher/teacher");
     }
   }
   return (
@@ -54,4 +54,4 @@ function TeacherLogin(props) {
   );
 }
 
-export default TeacherLogin;
+export default teacherlogin;

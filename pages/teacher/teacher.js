@@ -3,7 +3,7 @@ import Layout from "../../components/TeacherLayout";
 import RoomGrid from "../../components/RoomGrid";
 import { InputGroup, Button, Form } from "react-bootstrap";
 
-function Teacher(props) {
+function teacher(props) {
   //Array of all students for this school
   const [students, setStudents] = React.useState([]);
   //Array of all rooms for this school
@@ -162,4 +162,4 @@ function Teacher(props) {
   );
 }
 
-export default Teacher;
+export default teacher;

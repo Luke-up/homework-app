@@ -22,35 +22,35 @@ function StudentNav() {
             </button>
             <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li>
-                <Link href={"/Student/Student"}>
+                <Link href={"/Student/student"}>
                   <a className="dropdown-item" href="#">
                     Dashboard
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Student/Profile"}>
+                <Link href={"/Student/profile"}>
                   <a className="dropdown-item" href="#">
                     Profile
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Student/Assignments"}>
+                <Link href={"/Student/assignments"}>
                   <a className="dropdown-item" href="#">
                     Assignments
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Student/Wordbank"}>
+                <Link href={"/Student/wordbank"}>
                   <a className="dropdown-item" href="#">
                     Wordbank
                   </a>
                 </Link>
               </li>
               <li>
-                <Link href={"/Student/Help"}>
+                <Link href={"/Student/help"}>
                   <a className="dropdown-item" href="#">
                     Help
                   </a>

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Form, InputGroup } from "react-bootstrap";
 
 //Function creates a new school document in Mongo
-function Schoolcreate() {
+function schoolcreate() {
   const router = useRouter();
 
   //Fetch request checks the school name does not already exist
@@ -104,4 +104,4 @@ function Schoolcreate() {
   );
 }
 
-export default Schoolcreate;
+export default schoolcreate;

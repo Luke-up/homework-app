@@ -4,7 +4,7 @@ import { Table, Accordion } from "react-bootstrap";
 import React, { useEffect } from "react";
 
 //Function renders a list of all task items in student document
-function Assignments(props) {
+function assignments(props) {
   //Array holds all tasks in student document
   const [tasks, setTasks] = React.useState([]);
   //Boolean value conditionally renders elements on successful fetch request
@@ -143,4 +143,4 @@ function Assignments(props) {
   );
 }
 
-export default Assignments;
+export default assignments;

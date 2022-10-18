@@ -6,7 +6,7 @@ import Task from "../images/HelpTTask.jpg";
 import Eval from "../images/HelpTEval.jpg";
 import Student from "../images/HelpTStudent.jpg";
 
-function Help(props) {
+function help(props) {
   return (
     <Layout>
       <div>
@@ -86,4 +86,4 @@ function Help(props) {
   );
 }
 
-export default Help;
+export default help;

@@ -6,7 +6,7 @@ import Assignments from "../../components/Assignments";
 import Wordbank from "../../components/Wordbank";
 import { Form, Button } from "react-bootstrap";
 
-function StudentReport(props) {
+function studentreport(props) {
   //Object holds student document
   const [student, setStudent] = React.useState({});
   //Array holds all tasks done by student
@@ -114,7 +114,7 @@ function StudentReport(props) {
                 </Form.Select>
               </div>
               <div className="col-2">
-                <Link href={"/Teacher/Teacher"}>
+                <Link href={"/Teacher/teacher"}>
                   <Button>Dashboard</Button>
                 </Link>
               </div>
@@ -129,4 +129,4 @@ function StudentReport(props) {
   );
 }
 
-export default StudentReport;
+export default studentreport;

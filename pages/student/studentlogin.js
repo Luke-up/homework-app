@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Form, InputGroup } from "react-bootstrap";
 
-function StudentLogin(props) {
+function studentlogin(props) {
   //State holds input name and password
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -58,4 +58,4 @@ function StudentLogin(props) {
   );
 }
 
-export default StudentLogin;
+export default studentlogin;
