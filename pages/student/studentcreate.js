@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Form, InputGroup } from "react-bootstrap";
 
 //Renders form to create a new student user
-function studentcreate() {
+function Studentcreate() {
   const router = useRouter();
 
   //Function finds the school document in mongo and checks for matching code
@@ -105,4 +105,4 @@ function studentcreate() {
   );
 }
 
-export default studentcreate;
+export default Studentcreate;

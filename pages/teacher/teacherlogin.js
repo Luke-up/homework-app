@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Form, InputGroup } from "react-bootstrap";
 
-function teacherlogin(props) {
+function TeacherLogin(props) {
   //State contains the inputs to be sent via fetch request
   const [school, setSchool] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -54,4 +54,4 @@ function teacherlogin(props) {
   );
 }
 
-export default teacherlogin;
+export default TeacherLogin;

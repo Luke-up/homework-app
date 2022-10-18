@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Layout from "../../components/StudentLayout";
 
 //Renders small block showing user details
-function profile(props) {
+function Profile(props) {
   //Holds usser information
   const [user, setUser] = React.useState({});
   //Boolean value allows conditional rendering of elements after successful fetch request
@@ -43,4 +43,4 @@ function profile(props) {
   );
 }
 
-export default profile;
+export default Profile;

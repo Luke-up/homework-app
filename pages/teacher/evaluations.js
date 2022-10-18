@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Layout from "../../components/TeacherLayout";
 import { InputGroup, Button, Form, Accordion, Table } from "react-bootstrap";
 
-function evaluations(props) {
+function Evaluations(props) {
   //Array holds all tasks marked pending in the school
   const [evaluations, setEvaluations] = React.useState([]);
   const jsonWebToken = props.jwt;
@@ -155,4 +155,4 @@ function evaluations(props) {
   );
 }
 
-export default evaluations;
+export default Evaluations;

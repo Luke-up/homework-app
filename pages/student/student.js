@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Layout from "../../components/StudentLayout";
 
 //Function renders the student dashboard page on login
-function student(props) {
+function Student(props) {
   //Object holds the student data
   const [user, setUser] = React.useState({});
   //Boolean is used to conditionally render elements after successful fetch request
@@ -127,4 +127,4 @@ function student(props) {
   );
 }
 
-export default student;
+export default Student;

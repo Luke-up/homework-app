@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Layout from "../../components/TeacherLayout";
 import TaskFolder from "../../components/TaskFolder";
 
-function tasks(props) {
+function Tasks(props) {
   //Array of all students from the matching school
   const [students, setStudents] = React.useState([]);
   //Array of all rooms in the matching school
@@ -96,4 +96,4 @@ function tasks(props) {
   );
 }
 
-export default tasks;
+export default Tasks;

@@ -2,7 +2,7 @@ import Layout from "../../components/StudentLayout";
 import React, { useEffect } from "react";
 import { Table } from "react-bootstrap";
 
-function wordbank(props) {
+function WordBank(props) {
   //Array holds all tasks in student document
   const [tasks, setTasks] = React.useState([]);
   //Boolean value conditionally renders elements after successful fetch request
@@ -67,4 +67,4 @@ function wordbank(props) {
   );
 }
 
-export default wordbank;
+export default WordBank;
