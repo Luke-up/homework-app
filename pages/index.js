@@ -14,13 +14,13 @@ function Home() {
       <div className="logo-icon p-5"></div>
       <p>The continuous assesment and lexicon recording tool.</p>
       <button className="btn btn-secondary m-2">
-        <Link href={"/Student/StudentLogin"}>
+        <Link href={"/Student/studentlogin"}>
           <a className="text-decoration-none text-white">Student</a>
         </Link>
       </button>
       <br />
       <button className="btn btn-secondary m-2">
-        <Link href={"/Teacher/TeacherLogin"}>
+        <Link href={"/Teacher/teacherlogin"}>
           <a className="text-decoration-none text-white">Teacher</a>
         </Link>
       </button>

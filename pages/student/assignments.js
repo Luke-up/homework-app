@@ -1,16 +1,16 @@
 import Layout from "../../components/StudentLayout";
 import TaskForm from "../../components/TaskForm";
 import { Table, Accordion } from "react-bootstrap";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 //Function renders a list of all task items in student document
 function Assignments(props) {
   //Array holds all tasks in student document
-  const [tasks, setTasks] = React.useState([]);
+  const [tasks, setTasks] = useState([]);
   //Boolean value conditionally renders elements on successful fetch request
-  const [found, setFound] = React.useState(false);
+  const [found, setFound] = useState(false);
   //Boolean value renders form displaying task
-  const [taskAttempt, setTaskAttempt] = React.useState(false);
+  const [taskAttempt, setTaskAttempt] = useState(false);
   const jsonWebToken = props.jwt;
 
   //Fetch request gets information from Mongo
