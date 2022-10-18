@@ -50,7 +50,7 @@ function StudentNav() {
                 </Link>
               </li>
               <li>
-                <Link href={"/student/help"}>
+                <Link href={"/student/studenthelp"}>
                   <a className="dropdown-item" href="#">
                     Help
                   </a>

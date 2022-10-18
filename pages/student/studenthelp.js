@@ -4,7 +4,7 @@ import Image from "next/image";
 import Dash from "../images/HelpSDash.jpg";
 import Ass from "../images/HelpSAss.jpg";
 
-function Help(props) {
+function StudentHelp() {
   return (
     <Layout>
       <div>
@@ -48,4 +48,4 @@ function Help(props) {
   );
 }
 
-export default Help;
+export default StudentHelp;

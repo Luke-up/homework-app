@@ -6,7 +6,7 @@ import Task from "../images/HelpTTask.jpg";
 import Eval from "../images/HelpTEval.jpg";
 import Student from "../images/HelpTStudent.jpg";
 
-function Help(props) {
+function Help() {
   return (
     <Layout>
       <div>
