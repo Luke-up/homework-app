@@ -40,7 +40,7 @@ function TeacherLogin(props) {
           type="password"
         />
       </InputGroup>
-      <Link href={"/Teacher/SchoolCreate"}>
+      <Link href={"/teacher/schoolcreate"}>
         <a>Create new School</a>
       </Link>
       <br />

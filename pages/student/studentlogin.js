@@ -51,7 +51,7 @@ function StudentLogin(props) {
         Submit
       </button>
       <br />
-      <Link href={"/Student/StudentCreate"}>
+      <Link href={"/student/studentcreate"}>
         <a>Create new user</a>
       </Link>
     </div>
