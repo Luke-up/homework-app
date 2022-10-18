@@ -18,7 +18,8 @@ This fullstack application has deployed to Vercel.
 2. Table of contents
 3. Installation
 4. Usage
-5. Credits
+5. Miscellaneous
+6. Credits
 ---
 ## Installation
 - Download or moe files to your local machine.
