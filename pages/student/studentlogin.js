@@ -23,7 +23,7 @@ function StudentLogin(props) {
     const jwt = await res.json();
     props.setJwt(jwt.accesstoken);
     if (jwt.accesstoken) {
-      router.push("/Student/Student");
+      router.push("/student/student");
     }
   }
   return (

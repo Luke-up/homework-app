@@ -44,7 +44,7 @@ function RoomGrid(props) {
           ? props.students.map((student) => {
               if (student.room === props.roomName) {
                 return (
-                  <Link key={student._id} href={"/Teacher/" + student._id}>
+                  <Link key={student._id} href={"/teacher/" + student._id}>
                     <tr className="bg-light fs-4 text-center font-ubuntu">
                       <td>{student.name}</td>
                       <td>{student.effort}</td>

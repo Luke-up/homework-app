@@ -23,7 +23,7 @@ function TeacherLogin(props) {
     //The JWT is saved in the Layout component to be passed through props to different pages
     props.setJwt(jwt.accesstoken);
     if (jwt.accesstoken) {
-      router.push("/Teacher/teacher");
+      router.push("/teacher/teacher");
     }
   }
   return (
