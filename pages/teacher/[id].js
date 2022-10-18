@@ -114,7 +114,7 @@ function StudentReport(props) {
                 </Form.Select>
               </div>
               <div className="col-2">
-                <Link href={"/Teacher/teacher"}>
+                <Link href={"/teacher/teacher"}>
                   <Button>Dashboard</Button>
                 </Link>
               </div>
