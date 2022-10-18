@@ -5,6 +5,13 @@ Task and students can be added and their data manipulated in various ways to ass
 
 This web application was designed using Next.js and MongoDB to demonstrate profficiency in the MERN stack
 
+- This app uses an API as middleware to protect user data.
+- Json Web Token, used to provide a layer of security for users.
+
+Next.js allows for both Front and Back end to be bundled as a single project.
+This fullstack application has deployed to Vercel.
+
+[Live project link](https://homework-app.vercel.app/)
 ---
 ## Table of contents
 1. Description
@@ -39,6 +46,16 @@ This web application was designed using Next.js and MongoDB to demonstrate proff
 - To access the tasks for marking, the teacher can navigate to the evaluations page, by clicking the menu button at the top right and choosing evaluations from the drop down.
 - A list of all submitted tasks will be shown, to mark, click the task and choose an effort symbol from the list then click submit. ![Evaluations screen](https://github.com/Luke-up/homework-app/blob/c1381791356b964ec84f382811412e50b387d32a/images/Evals.JPG)
 - Additional datapoints are displayed on each menu, such as the amount of words that the student has learnt and their latest reading.![Student dashboard](https://github.com/Luke-up/homework-app/blob/c1381791356b964ec84f382811412e50b387d32a/images/StudDash.JPG)![Student wordbank](https://github.com/Luke-up/homework-app/blob/c1381791356b964ec84f382811412e50b387d32a/images/StudWord.JPG)
+---
+## Miscellaneous
+- Type 'npm test' in the terminal once inside the project directory to run snapshot tests and unit tests for the app.
+
+- To change the Mongo DB database, make sure to get the URI MongoDB website.
+- Open the project directory and select the env.local file.
+- Replace both the URI and fill in your own username and password.
+- The app will now connect to your database in MongoDB.
+- Ensure the file structure within MongoDB has a collection named 'homework' containing 'student' and 'teacher'.
+- To use a different file structure, make sure to update the API files located in /pages/api.
 ---
 ## Credits
 All works and code are attributed the author Luke Paine in conjuction with the Hyperion Dev Web development course.
