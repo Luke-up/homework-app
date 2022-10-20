@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Form, InputGroup } from "react-bootstrap";
@@ -22,6 +22,7 @@ function StudentLogin(props) {
 
     const jwt = await res.json();
     props.setJwt(jwt.accesstoken);
+    sessionStorage.setItem("jwt", jwt.accesstoken);
     if (jwt.accesstoken) {
       router.push("/student/student");
     }

@@ -11,6 +11,7 @@ function Assignments(props) {
   const [complete, setComplete] = React.useState(true);
   //Boolean used to conditionally render incomplete tasks
   const [incomplete, setIncomplete] = React.useState(true);
+  const [jsonWebToken, setJsonWebToken] = React.useState(props.jsonWebToken);
 
   function loadPage() {
     if (props.tasks) {
@@ -131,8 +132,8 @@ function Assignments(props) {
       </div>
       <AssignmentElement
         tasks={tasks}
-        setTasks={props.setTasks}
-        jsonWebToken={props.jsonWebToken}
+        setTasks={setTasks}
+        jsonWebToken={jsonWebToken}
         original={false}
       />
     </div>

@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/TeacherLayout";
+import AppContext from "../../components/AppContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Assignments from "../../components/Assignments";
@@ -17,7 +18,9 @@ function StudentReport(props) {
   const [found, setFound] = React.useState(false);
   //Veiw holds the name of data currently displayed on the page
   const [veiw, setVeiw] = React.useState("assignments");
-  const jsonWebToken = props.jwt;
+
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
 
   //Router used to retrieve the student ID from the url
   const router = useRouter();
@@ -28,7 +31,7 @@ function StudentReport(props) {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken, id: id }),
+      body: JSON.stringify({ jwt: jwt, id: id }),
     };
     const res = await fetch(`/api/studentreport`, options);
     const data = await res.json();
@@ -48,7 +51,7 @@ function StudentReport(props) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        jwt: jsonWebToken,
+        jwt: jwt,
         studentId: id,
         room: room,
       }),
@@ -65,7 +68,7 @@ function StudentReport(props) {
         <Assignments
           tasks={tasks}
           setTasks={setTasks}
-          jsonWebToken={jsonWebToken}
+          jsonWebToken={jwt}
           effort={student.effort}
         />
       );
@@ -114,7 +117,7 @@ function StudentReport(props) {
                 </Form.Select>
               </div>
               <div className="col-2">
-                <Link href={"/Teacher/teacher"}>
+                <Link href={"/teacher/teacher"}>
                   <Button>Dashboard</Button>
                 </Link>
               </div>

@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/StudentLayout";
+import AppContext from "../../components/AppContext";
 
 //Function renders the student dashboard page on login
 function Student(props) {
@@ -7,14 +8,16 @@ function Student(props) {
   const [user, setUser] = React.useState({});
   //Boolean is used to conditionally render elements after successful fetch request
   const [found, setFound] = React.useState(false);
-  const jsonWebToken = props.jwt;
+
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
 
   //Function finds student document in mongo
   async function checkCredentials() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken }),
+      body: JSON.stringify({ jwt: jwt }),
     };
     const res = await fetch(`/api/student`, options);
     const data = await res.json();

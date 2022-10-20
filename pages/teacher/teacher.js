@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/TeacherLayout";
 import RoomGrid from "../../components/RoomGrid";
+import AppContext from "../../components/AppContext";
 import { InputGroup, Button, Form } from "react-bootstrap";
 
 function Teacher(props) {
@@ -13,13 +14,15 @@ function Teacher(props) {
   //State for the function to create a new room
   const [newRoom, setNewRoom] = React.useState("newRoom");
 
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
   //Initial fetch request saves all required data to state
-  const jsonWebToken = props.jwt;
+  // const jsonWebToken = props.jwt;
   async function checkCredentials() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken }),
+      body: JSON.stringify({ jwt: jwt }),
     };
     const res = await fetch(`/api/teacher`, options);
     const data = await res.json();
@@ -59,7 +62,7 @@ function Teacher(props) {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken, rooms: newArray }),
+      body: JSON.stringify({ jwt: jwt, rooms: newArray }),
     };
     await fetch(`/api/addrooms`, options);
   }
@@ -76,7 +79,7 @@ function Teacher(props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          jwt: jsonWebToken,
+          jwt: jwt,
           roomName: roomName,
         }),
       };

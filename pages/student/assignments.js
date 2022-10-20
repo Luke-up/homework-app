@@ -1,7 +1,8 @@
 import Layout from "../../components/StudentLayout";
 import TaskForm from "../../components/TaskForm";
 import { Table, Accordion } from "react-bootstrap";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import AppContext from "../../components/AppContext";
 
 //Function renders a list of all task items in student document
 function Assignments(props) {
@@ -11,14 +12,16 @@ function Assignments(props) {
   const [found, setFound] = useState(false);
   //Boolean value renders form displaying task
   const [taskAttempt, setTaskAttempt] = useState(false);
-  const jsonWebToken = props.jwt;
+
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
 
   //Fetch request gets information from Mongo
   async function checkCredentials() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken }),
+      body: JSON.stringify({ jwt: jwt }),
     };
     const res = await fetch(`/api/studentwordbank`, options);
     const data = await res.json();
@@ -85,7 +88,7 @@ function Assignments(props) {
         {taskAttempt ? (
           <TaskForm
             task={taskAttempt}
-            jsonWebToken={jsonWebToken}
+            jsonWebToken={jwt}
             setTaskAttempt={setTaskAttempt}
             checkCredentials={checkCredentials}
           />

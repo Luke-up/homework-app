@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/TeacherLayout";
 import TaskFolder from "../../components/TaskFolder";
+import AppContext from "../../components/AppContext";
 
 function Tasks(props) {
   //Array of all students from the matching school
@@ -12,13 +13,15 @@ function Tasks(props) {
   //String indicating the current room
   const [current, setCurrent] = React.useState("unassigned");
 
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
+
   //fetch request returns all corresponding students and rooms in the school
-  const jsonWebToken = props.jwt;
   async function checkCredentials() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken }),
+      body: JSON.stringify({ jwt: jwt }),
     };
     const res = await fetch(`/api/teacher`, options);
     const data = await res.json();
@@ -82,7 +85,7 @@ function Tasks(props) {
           <div className="container bg-light border rounded border-dark my-2">
             {found ? (
               <TaskFolder
-                jsonWebToken={jsonWebToken}
+                jsonWebToken={jwt}
                 roomName={current}
                 students={studentArray()}
               />

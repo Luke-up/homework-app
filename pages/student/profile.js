@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/StudentLayout";
+import AppContext from "../../components/AppContext";
 
 //Renders small block showing user details
 function Profile(props) {
@@ -7,14 +8,16 @@ function Profile(props) {
   const [user, setUser] = React.useState({});
   //Boolean value allows conditional rendering of elements after successful fetch request
   const [found, setFound] = React.useState(false);
-  const jsonWebToken = props.jwt;
+
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
 
   //Function requests user information from Mongo
   async function checkCredentials() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken }),
+      body: JSON.stringify({ jwt: jwt }),
     };
     const res = await fetch(`/api/studentdetails`, options);
     const data = await res.json();

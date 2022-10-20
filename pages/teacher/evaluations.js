@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../../components/TeacherLayout";
+import AppContext from "../../components/AppContext";
 import { InputGroup, Button, Form, Accordion, Table } from "react-bootstrap";
 
 function Evaluations(props) {
   //Array holds all tasks marked pending in the school
   const [evaluations, setEvaluations] = React.useState([]);
-  const jsonWebToken = props.jwt;
+
+  const context = useContext(AppContext);
+  const jwt = context.state.jwt;
 
   //Function returns all tasks from students in the school marked pending
   async function getSubmissions() {
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jsonWebToken }),
+      body: JSON.stringify({ jwt: jwt }),
     };
     const res = await fetch(`/api/evaluations`, options);
     const data = await res.json();
@@ -34,7 +37,7 @@ function Evaluations(props) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        jwt: jsonWebToken,
+        jwt: jwt,
         id: id,
         task: markedTask,
       }),

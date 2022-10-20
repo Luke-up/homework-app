@@ -55,13 +55,13 @@ function AssignmentElement(props) {
 
   //Function removes the current task from the array
   //Function sets a different effort value to the task, then adds it back to the array
-  function effortChange(letter, thisTask) {
+  async function effortChange(letter, thisTask) {
     let newArray = props.tasks.filter((task) => task.title !== thisTask.title);
     let alterTask = thisTask;
     alterTask.effort = letter;
     newArray.push(alterTask);
-    PostChanges(newArray);
-    props.setTasks(newArray);
+    await PostChanges(newArray);
+    await props.setTasks(newArray);
   }
 
   //Function deletes the task from the teacher document in the database
@@ -142,12 +142,12 @@ function AssignmentElement(props) {
 
   //counted used as id when mapping array
   let count = 0;
+  const router = useRouter();
 
   //Function saves alterations to data in the database
   async function PostChanges(taskArray) {
     //ID of the student is taken from the url params
     //Used by teacher user when editing student data
-    const router = useRouter();
     const { id } = router.query;
     const options = {
       method: "POST",

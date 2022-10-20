@@ -22,6 +22,7 @@ function TeacherLogin(props) {
     const jwt = await res.json();
     //The JWT is saved in the Layout component to be passed through props to different pages
     props.setJwt(jwt.accesstoken);
+    sessionStorage.setItem("jwt", jwt.accesstoken);
     if (jwt.accesstoken) {
       router.push("/teacher/teacher");
     }
