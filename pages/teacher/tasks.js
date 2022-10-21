@@ -30,8 +30,10 @@ function Tasks(props) {
     setFound(true);
   }
   useEffect(() => {
-    checkCredentials();
-  }, []);
+    if (jwt) {
+      checkCredentials();
+    }
+  }, [jwt]);
 
   //Returns the amount of students in a particular room
   function studentNumber() {

@@ -31,8 +31,10 @@ function Assignments(props) {
     setFound(true);
   }
   useEffect(() => {
-    checkCredentials();
-  }, []);
+    if (jwt) {
+      checkCredentials();
+    }
+  }, [jwt]);
 
   //Count use to give id values to mapped objects
   let count = -1;

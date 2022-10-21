@@ -27,8 +27,10 @@ function WordBank(props) {
     setFound(true);
   }
   useEffect(() => {
-    checkCredentials();
-  }, []);
+    if (jwt) {
+      checkCredentials();
+    }
+  }, [jwt]);
 
   return (
     <Layout>
@@ -45,24 +47,30 @@ function WordBank(props) {
             </tr>
           </thead>
           <tbody>
-            {found
-              ? tasks.map((task) => {
-                  if (task.complete === "true") {
-                    return task.words.map((word) => {
-                      return (
-                        <tr
-                          className="font-ubuntu bg-light my-2 fs-5"
-                          key={word.word}
-                        >
-                          <td>{word.word}</td>
-                          <td>{word.definition}</td>
-                          <td>{word.sentence}</td>
-                        </tr>
-                      );
-                    });
-                  }
-                })
-              : "loading"}
+            {found ? (
+              tasks.map((task) => {
+                if (task.complete === "true") {
+                  return task.words.map((word) => {
+                    return (
+                      <tr
+                        className="font-ubuntu bg-light my-2 fs-5"
+                        key={word.word}
+                      >
+                        <td>{word.word}</td>
+                        <td>{word.definition}</td>
+                        <td>{word.sentence}</td>
+                      </tr>
+                    );
+                  });
+                }
+              })
+            ) : (
+              <tr className="font-ubuntu bg-light my-2 fs-5">
+                <td>Loading</td>
+                <td>Loading</td>
+                <td>Loading</td>
+              </tr>
+            )}
           </tbody>
         </Table>
       </div>

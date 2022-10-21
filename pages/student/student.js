@@ -26,16 +26,17 @@ function Student(props) {
   }
   useEffect(() => {
     if (!props.test) {
-      checkCredentials();
+      if (jwt) {
+        checkCredentials();
+      }
     }
-  }, []);
+  }, [jwt]);
 
   //Fucntion returns the number of completed tasks in student data
   const completed = complete();
   function complete() {
     if (found) {
       let count = 0;
-
       const taskArray = user.tasks;
       for (let i = 0; taskArray.length > i; i++) {
         if (

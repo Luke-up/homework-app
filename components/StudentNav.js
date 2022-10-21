@@ -58,7 +58,13 @@ function StudentNav() {
               </li>
               <li>
                 <Link href={"/"}>
-                  <a className="dropdown-item" href="#">
+                  <a
+                    onClick={() => {
+                      sessionStorage.removeItem("jwt");
+                    }}
+                    className="dropdown-item"
+                    href="#"
+                  >
                     Logout
                   </a>
                 </Link>

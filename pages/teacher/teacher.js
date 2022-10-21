@@ -16,6 +16,7 @@ function Teacher(props) {
 
   const context = useContext(AppContext);
   const jwt = context.state.jwt;
+
   //Initial fetch request saves all required data to state
   // const jsonWebToken = props.jwt;
   async function checkCredentials() {
@@ -32,9 +33,11 @@ function Teacher(props) {
   }
   useEffect(() => {
     if (!props.test) {
-      checkCredentials();
+      if (jwt) {
+        checkCredentials();
+      }
     }
-  }, []);
+  }, [jwt]);
 
   //Function reveals hidden input and submit button
   function createNewRoom() {

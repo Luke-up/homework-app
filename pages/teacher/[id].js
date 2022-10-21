@@ -28,21 +28,25 @@ function StudentReport(props) {
 
   //Function retrievec information on student and rooms in school
   async function checkCredentials() {
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ jwt: jwt, id: id }),
-    };
-    const res = await fetch(`/api/studentreport`, options);
-    const data = await res.json();
-    setFound(true);
-    setStudent(data[0][0]);
-    setTasks(data[0][0].tasks);
-    setRooms(data[1]);
+    if (jwt && id) {
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jwt: jwt, id: id }),
+      };
+      const res = await fetch(`/api/studentreport`, options);
+      const data = await res.json();
+      setFound(true);
+      setStudent(data[0][0]);
+      setTasks(data[0][0].tasks);
+      setRooms(data[1]);
+    }
   }
   useEffect(() => {
-    checkCredentials();
-  }, []);
+    if (jwt && id) {
+      checkCredentials();
+    }
+  }, [jwt, id]);
 
   //Function changes the room value in the student document
   //Function changes which room the student is assigned to
@@ -63,17 +67,19 @@ function StudentReport(props) {
   //or a list of the words the student has completed
   const currentVeiw = veiwSelect();
   function veiwSelect() {
-    if (veiw == "assignments") {
-      return (
-        <Assignments
-          tasks={tasks}
-          setTasks={setTasks}
-          jsonWebToken={jwt}
-          effort={student.effort}
-        />
-      );
-    } else {
-      return <Wordbank tasks={tasks} />;
+    if (jwt && student && found) {
+      if (veiw == "assignments") {
+        return (
+          <Assignments
+            tasks={tasks}
+            setTasks={setTasks}
+            jsonWebToken={jwt}
+            effort={student.effort}
+          />
+        );
+      } else {
+        return <Wordbank tasks={tasks} />;
+      }
     }
   }
 

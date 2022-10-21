@@ -25,8 +25,10 @@ function Profile(props) {
     setFound(true);
   }
   useEffect(() => {
-    checkCredentials();
-  }, []);
+    if (jwt) {
+      checkCredentials();
+    }
+  }, [jwt]);
 
   return (
     <Layout>

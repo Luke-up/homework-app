@@ -21,8 +21,8 @@ function StudentLogin(props) {
     const res = await fetch(`/api/studentlogin`, options);
 
     const jwt = await res.json();
-    props.setJwt(jwt.accesstoken);
     sessionStorage.setItem("jwt", jwt.accesstoken);
+    props.setJwt(jwt.accesstoken);
     if (jwt.accesstoken) {
       router.push("/student/student");
     }

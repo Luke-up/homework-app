@@ -22,8 +22,10 @@ function Evaluations(props) {
     setEvaluations(data);
   }
   useEffect(() => {
-    getSubmissions();
-  }, []);
+    if (jwt) {
+      getSubmissions();
+    }
+  }, [jwt]);
 
   //Function saves task to database with allocated effort symbol and the complete task marker
   async function submitEvaluation(id, title, task) {
